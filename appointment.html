@@ -67,52 +67,27 @@
           </g>
         </svg>
 
-        <h1 class="sitename">MediTrust</h1>
+        <h1 class="sitename">HorizonHelp</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" >Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="departments.html">Departments</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="doctors.html">Doctors</a></li>
-          <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="department-details.html">Department Details</a></li>
-              <li><a href="service-details.html">Service Details</a></li>
-              <li><a href="appointment.html" class="active">Appointment</a></li>
-              <li><a href="testimonials.html">Testimonials</a></li>
-              <li><a href="faq.html">Frequently Asked Questions</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="404.html">404</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+
+          
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="appointment.html">Appointment</a>
+      <a class="btn-getstarted" href="appointment.html" class="active">Appointment</a>
 
     </div>
   </header>
@@ -133,7 +108,7 @@
 
       <div class="title-wrapper">
         <h1>Appointment</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        <p>Book an appointment to find a doctor that meets your needs.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -193,69 +168,57 @@
           </div><!-- End Appointment Info -->
 
           <!-- Appointment Form -->
-          <div class="col-lg-6">
-            <div class="appointment-form-wrapper" data-aos="fade-up" data-aos-delay="200">
-              <form action="forms/appointment.php" method="post" class="appointment-form php-email-form">
-                <div class="row gy-3">
+         <!DOCTYPE html>
+            <html lang="en">
+            <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Doctor Appointment Booking</title>
+             <link rel="stylesheet" href="style.css">
+          </head>
+      <body>
+      <div id="formContainer">
+        <h2 id="formTitle">Book a Doctor Appointment</h2>
 
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Full Name" required="">
-                  </div>
+       <form id="appointmentForm">
+          <label for="patientName" id="nameLabel">Full Name:</label>
+         <input type="text" id="patientName" placeholder="Enter your full name" required>
 
-                  <div class="col-md-6">
-                    <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
-                  </div>
+          <label for="email" id="emailLabel">Email:</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
 
-                  <div class="col-md-6">
-                    <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number" required="">
-                  </div>
+        <label for="phone" id="phoneLabel">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
 
-                  <div class="col-md-6">
-                    <select name="department" class="form-select" required="">
-                      <option value="">Select Department</option>
-                      <option value="cardiology">Cardiology</option>
-                      <option value="neurology">Neurology</option>
-                      <option value="orthopedics">Orthopedics</option>
-                      <option value="pediatrics">Pediatrics</option>
-                      <option value="dermatology">Dermatology</option>
-                      <option value="general">General Medicine</option>
-                    </select>
-                  </div>
+         <label for="date" id="dateLabel">Appointment Date:</label>
+           <input type="date" id="date" required>
 
-                  <div class="col-md-6">
-                    <input type="date" name="date" class="form-control" required="">
-                  </div>
+          <label for="department" id="deptLabel">Department:</label>
+          <select id="department" required>
+          <option value="">Select a department</option>
+          <option value="Cardiology">Depression</option>
+          <option value="Pediatrics">PTSD</option>
+          <option value="Dermatology">Anxiety</option>
+          <option value="Orthopedics">Eating Disorders</option>
+          <option value="Neurology">Schizophrenia</option>
+        </select>
 
-                  <div class="col-md-6">
-                    <select name="doctor" class="form-select" required="">
-                      <option value="">Select Doctor</option>
-                      <option value="dr-johnson">Dr. Sarah Johnson</option>
-                      <option value="dr-martinez">Dr. Michael Martinez</option>
-                      <option value="dr-chen">Dr. Lisa Chen</option>
-                      <option value="dr-patel">Dr. Raj Patel</option>
-                      <option value="dr-williams">Dr. Emily Williams</option>
-                      <option value="dr-thompson">Dr. David Thompson</option>
-                    </select>
-                  </div>
+      <label for="doctor" id="doctorLabel">Preferred Doctor:</label>
+      <input type="text" id="doctor" placeholder="Enter doctor's name (optional)">
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Please describe your symptoms or reason for visit (optional)"></textarea>
-                  </div>
+      <label for="notes" id="notesLabel">Additional Notes:</label>
+      <textarea id="notes" placeholder="Describe your symptoms or requests" rows="4"></textarea>
 
-                  <div class="col-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your appointment request has been sent successfully. We will contact you shortly!</div>
+      <button id="submitButton" type="submit">Book Appointment</button>
+    </form>
 
-                    <button type="submit" class="btn btn-appointment w-100">
-                      <i class="bi bi-calendar-plus me-2"></i>Book Appointment
-                    </button>
-                  </div>
+    <p id="responseMessage"></p>
+  </div>
 
-                </div>
-              </form>
-            </div>
-          </div><!-- End Appointment Form -->
+  <script src="script.js"></script>
+</body>
+</html>
+
 
         </div>
 
@@ -415,6 +378,41 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Floating button -->
+  <div class="chat-button" id="chatBtn" title="Chat with mental health assistant">
+    <img src="assets/img/health/staff-7.webp" alt="assistant">
+  </div>
+
+<div class="chatbox" id="chatBox">
+  <div class="chatbox-header">
+    <img class="avatar-small" src="assets/img/health/staff-7.webp" alt="avatar">
+    <div>
+      <div style="font-weight:700">Wellness Assistant</div>
+      <div style="font-size:12px; opacity:0.95">I’m here to listen.</div>
+    </div>
+  </div>
+
+  <div class="chatbox-body" id="chatBody">
+    <div class="msg ai">
+      Hi! — I’m your personal wellness assistant. If you’re suffering from anything, let me know and I can provide ways to help.
+    </div>
+    <div class="crisis-banner" id="crisisBanner">
+      If you are thinking about harming yourself, please call <strong>988</strong> (U.S.) or your local crisis hotline.
+    </div>
+  </div>
+
+  <div class="chatbox-input">
+    <input id="userInput" placeholder="Type how you’re feeling..." />
+    <button id="sendBtn">Send</button>
+    <script src="assets/js/Chatbot.js"></script>
+  </div>
+
+
+</div>
+
 
 </body>
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Department Details - MediTrust Bootstrap Template</title>
+  <title>Services - MediTrust Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body class="department-details-page">
+<body class="services-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -67,7 +67,7 @@
           </g>
         </svg>
 
-        <h1 class="sitename">MediTrust</h1>
+        <h1 class="sitename">HorizonHelp</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -75,11 +75,11 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="departments.html">Departments</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
           <li><a href="doctors.html">Doctors</a></li>
           <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="department-details.html" class="active">Department Details</a></li>
+              <li><a href="department-details.html">Department Details</a></li>
               <li><a href="service-details.html">Service Details</a></li>
               <li><a href="appointment.html">Appointment</a></li>
               <li><a href="testimonials.html">Testimonials</a></li>
@@ -126,126 +126,181 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Home</a></li>
             <li class="breadcrumb-item"><a href="#">Category</a></li>
-            <li class="breadcrumb-item active current">Department Details</li>
+            <li class="breadcrumb-item active current">Services</li>
           </ol>
         </nav>
       </div>
 
       <div class="title-wrapper">
-        <h1>Department Details</h1>
+        <h1>Services</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Department Details Section -->
-    <section id="department-details" class="department-details section">
+    <!-- Services Section -->
+    <section id="services" class="services section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-4">
-          <div class="col-lg-8 mx-auto text-center intro" data-aos="fade-up" data-aos-delay="200">
-            <h2>Cardiology Department</h2>
-            <div class="divider mx-auto"></div>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        <div class="services-tabs">
+          <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="200">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="services-primary-tab" data-bs-toggle="tab" data-bs-target="#services-primary" type="button" role="tab">All</button>
+            </li>
+             <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="services-primary-tab" data-bs-toggle="tab" data-bs-target="#services-primary" type="button" role="tab">Local Care</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="services-specialty-tab" data-bs-toggle="tab" data-bs-target="#services-specialty" type="button" role="tab">National Care and Resources</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="services-emergency-tab" data-bs-toggle="tab" data-bs-target="#services-emergency" type="button" role="tab">Emergency</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade show active" id="services-primary" role="tabpanel">
+              <div class="row g-4">
+                
+
+                
+
+                <div class="col-lg-6">
+                  <div class="service-item">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-baby"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>Concord Counseling Services (Crisis Assistance)</h5>
+                      <p>Mental health crisis/emergency help, 24/7.</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>24/7/365</li>
+                        <li><i class="fa fa-check-circle"></i> Your conversations are free and cofidental</li>
+                        <li><i class="fa fa-check-circle"></i>Deaf Friendly</li>
+                      </ul>
+                      <a href="https://concordcounseling.org/crisis-assistance/?utm_source=chatgpt.com" class="service-link">
+                        <span>Counseling services</span>
+                        <i class="fa fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="service-item">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-user-md"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>Westerville Area Resource Ministry (WARM)</h5>
+                      <p>Support for Food, Clothes, Jobs, Faith, Financial Education</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>All-Age Care</li>
+                        <li><i class="fa fa-check-circle"></i>Basic Needs</li>
+                        <li><i class="fa fa-check-circle"></i>Employment Support</li>
+                      </ul>
+                      <a href="https://warmwesterville.org/" class="service-link">
+                        <span> Basic Resource</span>
+                        <i class="fa fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="services-specialty" role="tabpanel">
+              <div class="row g-4">
+                <div class="col-lg-6">
+                  <div class="service-item featured">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-heartbeat"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>988 Suicide & Crisis Lifeline</h5>
+                      <p>Provides immediate support for anyone in emotional distress, suicidal crisis, or worried about a loved one.</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>24/7</li>
+                        <li><i class="fa fa-check-circle"></i>Substance therapy</li>
+                        <li><i class="fa fa-check-circle"></i>Deaf Friendly</li>
+                      </ul>
+                      <a href="https://988lifeline.org" class="service-link">
+                        <span>National LifeLine</span>
+                        <i class="fa fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="service-item">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-brain"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>Substance Abuse and Mental Health Services Administration (SAMHSA) Helpline</h5>
+                      <p>Free, confidential treatment referral and information service (in English & Spanish) for individuals and families facing mental health and/or substance use disorders.</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>bilingual (English,Spanish)</li>
+                        <li><i class="fa fa-check-circle"></i>Veterans Friendly</li>
+                        <li><i class="fa fa-check-circle"></i>Treatment Locators.</li>
+                      </ul>
+                      <a href="https://www.samhsa.gov/find-help/helplines/national-helpline" class="service-link">
+                        <span>Learn More about Samhsa</span>
+                        <i class="fa fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="services-emergency" role="tabpanel">
+              <div class="row g-4">
+                <div class="col-lg-12">
+                  <div class="service-item emergency-highlight">
+                    <div class="service-icon-wrapper">
+                      <i class="fa fa-ambulance"></i>
+                    </div>
+                    <div class="service-details">
+                      <h5>24/7 Emergency Care</h5>
+                      <p>This is for immediate phyical danger or require urgent medical help</p>
+                      <ul class="service-benefits">
+                        <li><i class="fa fa-check-circle"></i>Round-the-Clock Availability</li>
+                        <li><i class="fa fa-check-circle"></i>Trauma Center</li>
+                        <li><i class="fa fa-check-circle"></i>Critical Care Unit</li>
+                        <li><i class="fa fa-check-circle"></i>Emergency Surgery</li>
+                      </ul>
+                      <div class="emergency-actions">
+                        <a href="tel:911" class="btn-emergency">
+                          <i class="fa fa-phone"></i>
+                          <span>Call Emergency</span>
+                        </a>
+                        <a href="directions.html" class="btn-directions">
+                          <i class="fa fa-map-marker-alt"></i>
+                          <span>Get Directions</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="department-overview mt-5">
-          <div class="row gy-4">
-            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="300">
-              <div class="department-image">
-                <img src="assets/img/health/cardiology-1.webp" alt="Cardiology Department" class="img-fluid rounded-lg">
-                <div class="experience-badge">
-                  <span>15+</span>
-                  <p>Years of Excellence</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-              <div class="department-services">
-                <div class="service-card">
-                  <div class="icon"><i class="bi bi-heart-pulse"></i></div>
-                  <div class="content">
-                    <h4>Comprehensive Cardiac Care</h4>
-                    <p>Pellentesque in ipsum id orci porta dapibus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
-                  </div>
-                </div>
-
-                <div class="service-card">
-                  <div class="icon"><i class="bi bi-activity"></i></div>
-                  <div class="content">
-                    <h4>Advanced Diagnostics</h4>
-                    <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt.</p>
-                  </div>
-                </div>
-
-                <div class="service-card">
-                  <div class="icon"><i class="bi bi-person-heart"></i></div>
-                  <div class="content">
-                    <h4>Personalized Treatment Plans</h4>
-                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="department-stats" data-aos="fade-up" data-aos-delay="400">
-          <div class="row gy-4">
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <div class="number purecounter" data-purecounter-start="0" data-purecounter-end="2500" data-purecounter-duration="2">0</div>
-                <p>Patients Treated</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <div class="number purecounter" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="2">0</div>
-                <p>Specialized Doctors</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <div class="number purecounter" data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="2">0</div>
-                <p>Success Rate</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-              <div class="stat-item">
-                <div class="number purecounter" data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="2">0</div>
-                <p>Hours Service</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-services mt-5" data-aos="fade-up" data-aos-delay="500">
-          <div class="row gy-4">
-            <div class="col-lg-5" data-aos="fade-right" data-aos-delay="600">
-              <h3>Our Specialized Services</h3>
-              <p>Donec rutrum congue leo eget malesuada. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula.</p>
-              <ul class="service-list">
-                <li><i class="bi bi-check-circle-fill"></i> Comprehensive cardiac evaluations</li>
-                <li><i class="bi bi-check-circle-fill"></i> Advanced interventional procedures</li>
-                <li><i class="bi bi-check-circle-fill"></i> Heart failure management plans</li>
-                <li><i class="bi bi-check-circle-fill"></i> Preventive cardiology consultations</li>
-                <li><i class="bi bi-check-circle-fill"></i> Cardiac rehabilitation programs</li>
-              </ul>
-            </div>
-            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="600">
-              <div class="cta-wrapper">
-                <div class="cta-content">
-                  <h3>Expert Care When You Need It Most</h3>
-                  <p>Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus.</p>
-                  <div class="cta-buttons">
-                    <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
-                    <a href="services.html" class="btn btn-outline">Learn More</a>
-                  </div>
-                </div>
-                <div class="cta-image">
-                  <img src="assets/img/health/cardiology-3.webp" alt="Cardiology Team" class="img-fluid rounded-lg">
+        <div class="services-cta" data-aos="fade-up" data-aos-delay="400">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <div class="cta-content">
+                <i class="fa fa-calendar-check"></i>
+                <h3>Ready to Schedule Your Appointment?</h3>
+                <p></p>
+                <div class="cta-buttons">
+                  <a href="appointment.html" class="btn-book">Book Now</a>
+                  <a href="contact.html" class="btn-contact">Contact Us</a>
                 </div>
               </div>
             </div>
@@ -254,7 +309,7 @@
 
       </div>
 
-    </section><!-- /Department Details Section -->
+    </section><!-- /Services Section -->
 
   </main>
 
@@ -358,6 +413,40 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Floating button -->
+  <div class="chat-button" id="chatBtn" title="Chat with mental health assistant">
+    <img src="assets/img/health/staff-7.webp" alt="assistant">
+  </div>
+
+<div class="chatbox" id="chatBox">
+  <div class="chatbox-header">
+    <img class="avatar-small" src="assets/img/health/staff-7.webp" alt="avatar">
+    <div>
+      <div style="font-weight:700">Wellness Assistant</div>
+      <div style="font-size:12px; opacity:0.95">I’m here to listen.</div>
+    </div>
+  </div>
+
+  <div class="chatbox-body" id="chatBody">
+    <div class="msg ai">
+      Hi! — I’m your personal wellness assistant. If you’re suffering from anything, let me know and I can provide ways to help.
+    </div>
+    <div class="crisis-banner" id="crisisBanner">
+      If you are thinking about harming yourself, please call <strong>988</strong> (U.S.) or your local crisis hotline.
+    </div>
+  </div>
+
+  <div class="chatbox-input">
+    <input id="userInput" placeholder="Type how you’re feeling..." />
+    <button id="sendBtn">Send</button>
+    <script src="assets/js/Chatbot.js"></script>
+  </div>
+
+
+</div>
 
 </body>
 
