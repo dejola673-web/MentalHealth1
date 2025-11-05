@@ -80,7 +80,7 @@
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
 
           
         </ul>
@@ -193,18 +193,17 @@
          <label for="date" id="dateLabel">Appointment Date:</label>
            <input type="date" id="date" required>
 
-          <label for="department" id="deptLabel">Department:</label>
+          <label for="department" id="deptLabel">Doctor:</label>
           <select id="department" required>
-          <option value="">Select a department</option>
-          <option value="Cardiology">Depression</option>
-          <option value="Pediatrics">PTSD</option>
-          <option value="Dermatology">Anxiety</option>
-          <option value="Orthopedics">Eating Disorders</option>
-          <option value="Neurology">Schizophrenia</option>
+            <option value="">Select An Option</option>
+          <option value="Dr. Michael Chen">Dr. Michael Chen</option>
+          <option value="Dr. Sarah Williams">Dr. Sarah Williams</option>
+          <option value="Dr. Robert Anderson">Dr. Robert Anderson</option>
+          <option value="Dr. David Rodriguez">Dr. David Rodriguez</option>
+          <option value="Dr. James Wilson">Dr. James Wilson</option>
+
         </select>
 
-      <label for="doctor" id="doctorLabel">Preferred Doctor:</label>
-      <input type="text" id="doctor" placeholder="Enter doctor's name (optional)">
 
       <label for="notes" id="notesLabel">Additional Notes:</label>
       <textarea id="notes" placeholder="Describe your symptoms or requests" rows="4"></textarea>
@@ -214,8 +213,53 @@
 
     <p id="responseMessage"></p>
   </div>
+<script>
+  // Helper functions for cookies
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+  }
 
-  <script src="script.js"></script>
+  function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, v) => {
+      const parts = v.split('=');
+      return parts[0] === name ? decodeURIComponent(parts[1]) : r
+    }, '');
+  }
+
+  // Save form data to cookies
+  function saveFormData() {
+    setCookie('patientName', document.getElementById('patientName').value, 7);
+    setCookie('email', document.getElementById('email').value, 7);
+    setCookie('phone', document.getElementById('phone').value, 7);
+    setCookie('date', document.getElementById('date').value, 7);
+    setCookie('department', document.getElementById('department').value, 7);
+    setCookie('notes', document.getElementById('notes').value, 7);
+  }
+
+  // Load form data from cookies
+  function loadFormData() {
+    if (getCookie('patientName')) document.getElementById('patientName').value = getCookie('patientName');
+    if (getCookie('email')) document.getElementById('email').value = getCookie('email');
+    if (getCookie('phone')) document.getElementById('phone').value = getCookie('phone');
+    if (getCookie('date')) document.getElementById('date').value = getCookie('date');
+    if (getCookie('department')) document.getElementById('department').value = getCookie('department');
+    if (getCookie('notes')) document.getElementById('notes').value = getCookie('notes');
+  }
+
+  // Event listeners
+  window.addEventListener('load', loadFormData);
+
+  // Save form data on submit and optionally on input changes
+  document.getElementById('appointmentForm').addEventListener('submit', function(event) {  // prevent form actual submission for demo purposes
+    saveFormData();
+    alert('Appointment data saved!' + ' ' + getCookie('department') + ' ' +'will see you shortly');
+    this.reset();  
+    // Here you can do your normal submission or further processing
+  });
+</script>
+
+
 </body>
 </html>
 

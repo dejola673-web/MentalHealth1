@@ -6,6 +6,8 @@ document.getElementById("appointmentForm").addEventListener("submit", function(e
   const phone = document.getElementById("phone").value.trim();
   const date = document.getElementById("date").value;
   const department = document.getElementById("department").value;
+  const doctor
+   = document.getElementById("doctor").value;
 
   if (!name || !email || !phone || !date || !department) {
     alert("Please fill in all required fields.");
