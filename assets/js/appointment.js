@@ -1,18 +1,22 @@
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+document.getElementById("appointmentForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
+  const name = document.getElementById("patientName").value.trim();
   const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const date = document.getElementById("date").value;
+  const department = document.getElementById("department").value;
+  const doctor
+   = document.getElementById("doctor").value;
 
-  if (!name || !email || !message) {
-    alert("Please fill in all fields.");
+  if (!name || !email || !phone || !date || !department) {
+    alert("Please fill in all required fields.");
     return;
   }
 
   const response = document.getElementById("responseMessage");
-  response.textContent = `Thank you, ${name}! Your message has been received.`;
+  response.textContent = `✅ Appointment booked successfully for ${name} in ${department} on ${date}.`;
   response.style.display = "block";
 
-  document.getElementById("contactForm").reset();
+  document.getElementById("appointmentForm").reset();
 });
