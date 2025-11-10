@@ -79,7 +79,7 @@
           <li><a href="doctors.html">Doctors</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="gallery.html">Blog</a></li>
           <li><a href="contact.html">Contact Us</a></li>
 
           
@@ -223,8 +223,12 @@
   function getCookie(name) {
     return document.cookie.split('; ').reduce((r, v) => {
       const parts = v.split('=');
-      return parts[0] === name ? decodeURIComponent(parts[1]) : r
+      return parts[0] === name ? decodeURIComponent(parts[1]) : r;
     }, '');
+  }
+
+  function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
   }
 
   // Save form data to cookies
@@ -247,22 +251,38 @@
     if (getCookie('notes')) document.getElementById('notes').value = getCookie('notes');
   }
 
-  // Event listeners
-  window.addEventListener('load', loadFormData);
+  // Delete all cookies related to the form
+  function clearFormCookies() {
+    deleteCookie('patientName');
+    deleteCookie('email');
+    deleteCookie('phone');
+    deleteCookie('date');
+    deleteCookie('department');
+    deleteCookie('notes');
+  }
 
-  // Save form data on submit and optionally on input changes
-  document.getElementById('appointmentForm').addEventListener('submit', function(event) {  // prevent form actual submission for demo purposes
-    saveFormData();
-    alert('Appointment data saved!' + ' ' + getCookie('department') + ' ' +'will see you shortly');
-    this.reset();  
-    // Here you can do your normal submission or further processing
+  // Initialize when page loads
+  window.addEventListener('load', () => {
+    loadFormData();
+    const form = document.getElementById('appointmentForm');
+    if (form) {
+      // Save data automatically as user types
+      form.addEventListener('input', saveFormData);
+
+      // On submit: show alert, clear cookies, reset form
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // prevent page reload for demo
+        alert('Appointment data saved! ' + getCookie('department') + ' will see you shortly.');
+        clearFormCookies();
+        this.reset();
+      });
+    }
   });
 </script>
 
 
 </body>
 </html>
-
 
         </div>
 
