@@ -24,7 +24,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #2c3031; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #18444c; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ffbb00; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color2: #8ac06b; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -32,7 +32,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #496268;  /* The default color of the main navmenu links */
-  --nav-hover-color: #e6a800; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #8ac06b; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #496268; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -40,6 +40,8 @@
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+
 
 .light-background {
   --background-color: #f2f8f9;
@@ -839,12 +841,31 @@ section,
   padding: 0;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .hero .hero-wrapper {
-  min-height: 100vh;
+  min-height: 75.5vh;
   padding: 0;
 }
+
+
+.hero .hero-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+  ellipse at center,
+  transparent 20%,
+  rgba(0, 0, 0, 0.219) 100%
+  );
+    z-index: 1;
+  }
+
+
 
 .hero .hero-image {
   position: absolute;
@@ -854,6 +875,7 @@ section,
   height: 100%;
   z-index: 1;
 }
+
 
 .hero .hero-image::after {
   content: "";
@@ -876,10 +898,24 @@ section,
 .hero .hero-content {
   position: relative;
   z-index: 3;
-  padding: 3rem 0;
+  padding: 4rem 0;
   width: 100%;
 }
 
+.hero .hero-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+  ellipse at center,
+  transparent 20%,
+  rgba(0, 0, 0, 0.3) 100%
+    );
+  z-index: 1;
+}
 
 
 .hero .hero-content .content-box {
@@ -914,10 +950,11 @@ section,
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
+  margin-top: 25px;
 }
 
 .hero .hero-content .content-box .cta-group .btn {
-  padding: 0.8rem 2rem;
+  padding: 0.8rem;
   font-weight: 600;
   border-radius: 50px;
   transition: all 0.3s ease;
@@ -978,13 +1015,9 @@ section,
   font-weight: 600;
 }
 
-.hero .features-wrapper {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  justify-content: space-between;
-  padding: 2rem;
-  margin-top: 15px;
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
 }
 
 .hero .features-wrapper .feature-item {
@@ -1014,6 +1047,25 @@ section,
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+ .feature-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+
+}
+
+.feature-hover:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-hover:hover h3 {
+  color: var(--accent-color);
+}
+
+.feature-hover:active {
+  transform: translateY(-4px);
+  transition: all 0.1s ease;
 }
 
 .hero .features-wrapper .feature-item .feature-text p {
@@ -1191,6 +1243,11 @@ section,
 .home-about .feature-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
 }
 
 .home-about .feature-item .icon {
@@ -1461,7 +1518,7 @@ section,
   left: 0;
   width: 100%;
   height: 4px;
-  background: #ffbb00;;
+  background: #8ac06b;
 }
 
 .featured-services .service-icon {
@@ -5911,7 +5968,7 @@ section,
   /* Add your styles here */
 }
 :root {
-  --blue: #ffbb00;
+  --blue: #8ac06b;;
   --bg: #ffffff;
   --muted: #6b7280;
 }
@@ -6016,7 +6073,7 @@ section,
   width: 100%;
   margin-top: 15px;
   padding: 10px;
-  background-color: #ffbb00;
+  background-color: #8ac06b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -6024,7 +6081,7 @@ section,
 }
 
 #submitButton:hover {
-  background-color: #ffbb00;
+  background-color: #8ac06b;
 }
 
 #responseMessage {
@@ -6084,7 +6141,7 @@ section,
   width: 100%;
   margin-top: 15px;
   padding: 10px;
-  background-color: #ffbb00;
+  background-color: #8ac06b;
   color: white;
   border: none;
   border-radius: 5px;
@@ -6092,7 +6149,7 @@ section,
 }
 
 #submitButton:hover {
-  background-color: orange;
+  background-color: #8ac06b;
 }
 
 #responseMessage {
@@ -6492,7 +6549,7 @@ section,
       --background-color: #ffffff;
       --default-color: #2c3031;
       --heading-color: #18444c;
-      --accent-color: #ffbb00;
+      --accent-color: #8ac06b;
       --surface-color: #ffffff;
       --contrast-color: #ffffff;
     }
@@ -7242,7 +7299,7 @@ section,
       --background-color: #ffffff;
       --default-color: #2c3031;
       --heading-color: #18444c;
-      --accent-color: #ffbb00;
+      --accent-color:#9cbc8a;
       --surface-color: #ffffff;
       --contrast-color: #ffffff;
     }
@@ -7826,17 +7883,6 @@ section,
         flex-direction: column;
         text-align: center;
       }
-    }
-
-    :root {
-      --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --heading-font: "Raleway", sans-serif;
-      --background-color: #ffffff;
-      --default-color: #2c3031;
-      --heading-color: #18444c;
-      --accent-color: #ffbb00;
-      --surface-color: #ffffff;
-      --contrast-color: #ffffff;
     }
 
     .light-background {

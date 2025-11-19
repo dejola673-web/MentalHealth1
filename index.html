@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Test - MediTrust Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>HorizonHelp - Mental Health Support & Resources</title>
+    
+  <meta name="description" content="America's premier mental health campaign providing comprehensive support, resources, and treatment for depression, anxiety, PTSD, and other mental health conditions.">
+  <meta name="keywords" content="mental health, depression treatment, anxiety therapy, PTSD support, mental health resources">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -28,24 +29,82 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: MediTrust
-  * Template URL: https://bootstrapmade.com/meditrust-bootstrap-hospital-website-template/
-  * Updated: Jul 04 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* Accessibility Enhancements */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000000;
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 10000;
+      font-weight: bold;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Enhanced Focus Indicators */
+    *:focus {
+      outline: 3px solid #4A90E2;
+      outline-offset: 2px;
+    }
+
+    *:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    *:focus-visible {
+      outline: 3px solid #4A90E2;
+      outline-offset: 2px;
+    }
+
+    /* Ensure minimum touch targets on mobile */
+    @media (max-width: 768px) {
+      button, a, input[type="submit"], input[type="button"] {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+
+    /* Visually hidden but screen reader accessible */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .sr-only-focusable:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+  </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <!-- Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <svg class="my-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="HorizonHelp Home">
+        <svg class="my-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logoTitle logoDesc" role="img">
+          <title id="logoTitle">HorizonHelp Logo</title>
+          <desc id="logoDesc">Hospital building icon representing mental health services</desc>
           <g id="bgCarrier" stroke-width="0"></g>
           <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="iconCarrier">
@@ -70,37 +129,32 @@
         <h1 class="sitename">HorizonHelp</h1>
       </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="departments.html">Departments</a></li>
-          <li><a href="services.html">Services</a></li>
+      <nav id="navmenu" class="navmenu" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="index.html" aria-current="page" class="active">Home</a></li>
           <li><a href="doctors.html">Doctors</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="faq.html">FAQ</a></li>
           <li><a href="gallery.html">Blog</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-
-          
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navmenu">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
       </nav>
-      
 
-      <a class="btn-getstarted" href="appointment.html">Appointment</a>
+      <a class="btn-getstarted" href="appointment.html">Book Appointment</a>
 
     </div>
   </header>
 
-  <main class="main">
+  <main class="main" id="main-content" role="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero section dark-background" aria-labelledby="hero-heading">
       <div class="container-fluid p-0">
         <div class="hero-wrapper">
           <div class="hero-image">
-            <img src="assets/img/health/showcase-1.webp" alt="Advanced Healthcare" class="img-fluid">
+            <img src="assets/img/Clinical Medical Assisting/BP/IMG_9927.JPG" alt="" role="presentation">
           </div>
 
           <div class="hero-content">
@@ -109,123 +163,112 @@
                 <div class="col-lg-7 col-md-10" data-aos="fade-right" data-aos-delay="100">
                   <div class="content-box">
                     <span class="badge-accent" data-aos="fade-up" data-aos-delay="150">America's Top Mental Health Campaign</span>
-                    <h1 data-aos="fade-up" data-aos-delay="200">Helping Millions Battle Mental Health Struggles</h1>
-                    <p data-aos="fade-up" data-aos-delay="250">Our mission is to destigmatize mental health struggles and help anyone facing mental health struggles.</p>
+                    <h2 id="hero-heading" data-aos="fade-up" data-aos-delay="200"><strong>Helping Millions Better Their Mental Health</strong></h2>
+                    <p data-aos="fade-up" data-aos-delay="250">Our mission is to destigmatize mental health and help anyone facing mental health struggles.</p>
 
+                    <div class="info-badges" data-aos="fade-up" data-aos-delay="350">
+                      <div class="badge-item">
+                        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                        <div class="badge-content">
+                          <span>Emergency Line</span>
+                          <strong><a href="tel:+15559876543" style="color: inherit; text-decoration: none;">+1 (555) 987-6543</a></strong>
+                        </div>
+                      </div>
+                      <div class="badge-item">
+                        <i class="bi bi-clock-fill" aria-hidden="true"></i>
+                        <div class="badge-content">
+                          <span>Working Hours</span>
+                          <strong><time>Mon-Fri: 8AM-8PM</time></strong>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div class="cta-group" data-aos="fade-up" data-aos-delay="300">
                       <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
                       <a href="services.html" class="btn btn-outline">Explore Services</a>
                     </div>
-
-                    <div class="info-badges" data-aos="fade-up" data-aos-delay="350">
-                      <div class="badge-item">
-                        <i class="bi bi-telephone-fill"></i>
-                        <div class="badge-content">
-                          <span>Emergency Line</span>
-                          <strong>+1 (555) 987-6543</strong>
-                        </div>
-                      </div>
-                      <div class="badge-item">
-                        <i class="bi bi-clock-fill"></i>
-                        <div class="badge-content">
-                          <span>Working Hours</span>
-                          <strong>Mon-Fri: 8AM-8PM</strong>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
-
+              
               <div class="features-wrapper">
-                <div class="row gy-4">
+                <div class="row gy-4 justify-content-center">
 
-                  <div class="col-lg-4">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="450">
-                      <div class="feature-icon">
-                        <i class="bi bi-heart-pulse-fill"></i>
+                  <div class="col-lg-4 col-md-6">
+                    <a href="testimonials.html" class="feature-item feature-hover" data-aos="fade-up" data-aos-delay="450" style="text-decoration: none; display: block; cursor: pointer; height: 100%; background: color-mix(in srgb, var(--surface-color), transparent 20%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding: 2rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                      <div class="feature-icon" style="margin-bottom: 20px; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <i class="bi bi-chat-quote-fill" aria-hidden="true"></i>
                       </div>
                       <div class="feature-text">
-                        <h3>Depression</h3>
-                        <p>Depression is a common mental health condition causing ongoing sadness and loss of interest. It affects mood, energy, and focus but can be treated with therapy, medication, and support.</p>
+                        <h3 style="margin-bottom: 15px; transition: color 0.3s ease;">Testimonials</h3>
+                        <p style="margin-bottom: 0;">Read inspiring stories from our patients about their journey to recovery and the compassionate care they received from our dedicated team.</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
-                  <div class="col-lg-4">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-                      <div class="feature-icon">
-                        <i class="bi bi-lungs-fill"></i>
+                  <div class="col-lg-4 col-md-6">
+                    <a href="contact.html" class="feature-item feature-hover" data-aos="fade-up" data-aos-delay="500" style="text-decoration: none; display: block; cursor: pointer; height: 100%; background: color-mix(in srgb, var(--surface-color), transparent 20%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding: 2rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                      <div class="feature-icon" style="margin-bottom: 20px; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <i class="bi bi-question-circle-fill" aria-hidden="true"></i>
                       </div>
                       <div class="feature-text">
-                        <h3>PTSD</h3>
-                        <p>PTSD is a mental health condition caused by trauma, leading to flashbacks, nightmares, and anxiety. Its treatable with therapy, medication, and support. Early help and ongoing care can improve recovery.</p>
+                        <h3 style="margin-bottom: 15px; transition: color 0.3s ease;">Contact Us</h3>
+                        <p style="margin-bottom: 0;">Send us a message about any concerns you might have, don't be afraid to reach out for any questions you might have about your treatment.</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
-                  <div class="col-lg-4">
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="550">
-                      <div class="feature-icon">
-                        <i class="bi bi-capsule"></i>
+                  <div class="col-lg-4 col-md-6">
+                    <a href="gallery.html" class="feature-item feature-hover" data-aos="fade-up" data-aos-delay="550" style="text-decoration: none; display: block; cursor: pointer; height: 100%; background: color-mix(in srgb, var(--surface-color), transparent 20%); border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding: 2rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                      <div class="feature-icon" style="margin-bottom: 20px; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <i class="bi bi-newspaper" aria-hidden="true"></i>
                       </div>
                       <div class="feature-text">
-                        <h3>Eating Disorders</h3>
-                        <p>Eating disorders are serious mental health conditions characterized by unhealthy eating habits and distorted body image. They can affect physical health, mood, and daily life. Reaching out is the first step of recovery.</p>
+                        <h3 style="margin-bottom: 15px; transition: color 0.3s ease;">Blog</h3>
+                        <p style="margin-bottom: 0;">Explore our latest articles on mental health tips, wellness strategies, and expert insights to support your journey toward better mental well-being.</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /Hero Section -->
+    </section>
 
     <!-- Home About Section -->
-    <section id="home-about" class="home-about section">
+    <section id="home-about" class="home-about section" aria-labelledby="about-heading">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-5 align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="about-image">
-              <img src="assets/img/health/facilities-1.webp" alt="Modern Healthcare Facility" class="img-fluid rounded-3 mb-4">
-              <div class="experience-badge">
-                <span class="years">25+</span>
-                <span class="text">Years of Excellence</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+          <div class="col-lg-6 order-lg-1 order-2" data-aos="fade-left" data-aos-delay="300">
             <div class="about-content">
-              <h2>America's Premier Mental Health Campaign</h2>
-              <p class="lead">We are dedicated to the wellness of the world. We believe helping people understand mental health is a important step in helping treat it..</p>
+              <h2 id="about-heading">America's Premier Mental Health Campaign</h2>
+              <p class="lead">We are dedicated to the wellness of the world. We believe helping people understand mental health is an important step in helping treat it.</p>
 
-              <p>From pyschotherapy, stress therapy, and even certified mental health doctors. We have a vast array of resources you can use to help you get a better shape mentally. Reaching out for help is the first step in getting treatment, so never hold off on it.</p>
+              <p>From psychotherapy, stress therapy, and even certified mental health doctors. We have a vast array of resources you can use to help you get in better shape mentally. Reaching out for help is the first step in getting treatment, so never hold off on it.</p>
 
               <div class="row g-4 mt-4">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                   <div class="feature-item">
-                    <div class="icon">
+                    <div class="icon" aria-hidden="true">
                       <i class="bi bi-heart-pulse"></i>
                     </div>
-                    <h4>Compassionate Care</h4>
+                    <h3>Compassionate Care</h3>
                     <p>We have excellent resources dedicated to helping you.</p>
                   </div>
                 </div>
 
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                   <div class="feature-item">
-                    <div class="icon">
+                    <div class="icon" aria-hidden="true">
                       <i class="bi bi-star"></i>
                     </div>
-                    <h4>Medical Excellence</h4>
-                    <p>We have more than 10+ certified mental health doctors to choose from.</p>
+                    <h3>Medical Excellence</h3>
+                    <p>We have more than 10 certified mental health doctors to choose from.</p>
                   </div>
                 </div>
               </div>
@@ -236,172 +279,178 @@
               </div>
             </div>
           </div>
+
+          <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-image">
+              <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0115.JPG" alt="Modern mental healthcare facility with compassionate staff" class="img-fluid rounded-3 mb-4">
+            </div>
+          </div>
         </div>
 
         <div class="row mt-5 pt-4 certifications-row" data-aos="fade-up" data-aos-delay="600">
           <div class="col-12 text-center mb-4">
-            <h4 class="certification-title">Our Accreditations</h4>
+            <h3 class="certification-title">Our Accreditations</h3>
           </div>
           <div class="col-12">
-            <div class="certifications">
-              <div class="certification-item" data-aos="zoom-in" data-aos-delay="700">
-                <img src="assets/img/clients/clients-1.webp" alt="Certification">
+            <div class="certifications" role="list" aria-label="Accreditation logos">
+              <div class="certification-item" data-aos="zoom-in" data-aos-delay="700" role="listitem">
+                <img src="assets/img/clients/clients-1.webp" alt="Healthcare accreditation organization logo">
               </div>
-              <div class="certification-item" data-aos="zoom-in" data-aos-delay="800">
-                <img src="assets/img/clients/clients-2.webp" alt="Certification">
+              <div class="certification-item" data-aos="zoom-in" data-aos-delay="800" role="listitem">
+                <img src="assets/img/clients/clients-2.webp" alt="Mental health certification board logo">
               </div>
-              <div class="certification-item" data-aos="zoom-in" data-aos-delay="900">
-                <img src="assets/img/clients/clients-3.webp" alt="Certification">
+              <div class="certification-item" data-aos="zoom-in" data-aos-delay="900" role="listitem">
+                <img src="assets/img/clients/clients-3.webp" alt="Quality assurance certification logo">
               </div>
-
             </div>
           </div>
         </div>
 
       </div>
 
-    </section><!-- /Home About Section -->
+    </section>
 
     <!-- Featured Departments Section -->
-    <section id="featured-departments" class="featured-departments section">
+    <section id="featured-departments" class="featured-departments section" aria-labelledby="departments-heading">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Departments</h2>
+        <h2 id="departments-heading">Featured Departments</h2>
         <p>Specialized departments each dedicated to a unique mental illness.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/cardiology-3.webp" alt="Cardiology Department" class="img-fluid">
+                <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0121.JPG" alt="Depression treatment consultation room" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
-                  <i class="fas fa-heartbeat"></i>
+                <div class="department-icon" aria-hidden="true">
+                  <i class="fas fa-brain"></i>
                 </div>
                 <h3>Depression</h3>
                 <p>Depression treatment often includes a combination of therapy, medication, and lifestyle changes. Psychotherapy, such as cognitive-behavioral therapy (CBT) or interpersonal therapy (IPT), helps individuals understand and manage their thoughts and feelings.</p>
-                <a href="department-depression.html" class="btn-learn-more">
+                <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#depressionModal" aria-label="Learn more about depression treatment">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/neurology-2.webp" alt="Neurology Department" class="img-fluid">
+                <img src="assets/img/Clinical Medical Assisting/BP/IMG_9919.JPG" alt="Anxiety therapy session environment" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
-                  <i class="fas fa-brain"></i>
+                <div class="department-icon" aria-hidden="true">
+                  <i class="fas fa-heartbeat"></i>
                 </div>
                 <h3>Anxiety</h3>
-                <p>Anxiety treatment often includes a combination of therapy, such as cognitive behavioral therapy (CBT), and medication like SSRIs to manage symptoms. Lifestyle changes—like regular exercise, mindfulness, and sleep improvement—can also support recovery.</p>
-                <a href="department-anxiety.html" class="btn-learn-more">
+                <p>Anxiety treatment often includes a combination of therapy, such as cognitive behavioral therapy (CBT), and medication like SSRIs to manage symptoms. Lifestyle changes like regular exercise, mindfulness, and sleep improvement can also support recovery.</p>
+                <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#anxietyModal" aria-label="Learn more about anxiety treatment">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/orthopedics-4.webp" alt="Orthopedics Department" class="img-fluid">
+                <img src="assets/img/Healthcare Tech/Kya/IMG_9974.JPG" alt="PTSD trauma therapy space" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
+                <div class="department-icon" aria-hidden="true">
                   <i class="fas fa-bone"></i>
                 </div>
                 <h3>PTSD</h3>
                 <p>PTSD treatment typically involves trauma-focused therapies such as cognitive processing therapy (CPT) or eye movement desensitization and reprocessing (EMDR). Medications like SSRIs may also be prescribed to help manage symptoms such as anxiety, depression, or insomnia.</p>
-                <a href="department-ptsd.html" class="btn-learn-more">
+                <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#ptsdModal" aria-label="Learn more about PTSD treatment">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/pediatrics-3.webp" alt="Pediatrics Department" class="img-fluid">
+                <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0061.JPG" alt="Eating disorder recovery program" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
+                <div class="department-icon" aria-hidden="true">
                   <i class="fas fa-baby"></i>
                 </div>
                 <h3>Eating Disorders</h3>
                 <p>Eating disorder treatment often includes a combination of medical care, nutritional counseling, and psychotherapy, such as cognitive behavioral therapy (CBT). Treatment focuses on normalizing eating patterns, addressing underlying emotional issues, and building a healthy relationship with food and body image.</p>
-                <a href="department-eating.html" class="btn-learn-more">
+                <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#eatingModal" aria-label="Learn more about eating disorder treatment">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/oncology-4.webp" alt="Oncology Department" class="img-fluid">
+                <img src="assets/img/Student Services/IMG_9892.JPG" alt="Schizophrenia treatment facility" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
+                <div class="department-icon" aria-hidden="true">
                   <i class="fas fa-shield-alt"></i>
                 </div>
                 <h3>Schizophrenia</h3>
                 <p>Schizophrenia treatment typically involves antipsychotic medications to help manage symptoms like hallucinations, delusions, and disorganized thinking. Psychosocial therapies, such as cognitive behavioral therapy (CBT) and supported employment or social skills training, are also important for long-term recovery.</p>
-                <a href="department-schizo.html" class="btn-learn-more">
+                <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#schizophreniaModal" aria-label="Learn more about schizophrenia treatment">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </button>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="department-card">
+            <article class="department-card">
               <div class="department-image">
-                <img src="assets/img/health/emergency-2.webp" alt="Emergency Department" class="img-fluid">
+                <img src="assets/img/health/emergency-2.webp" alt="Emergency mental health care center" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon">
+                <div class="department-icon" aria-hidden="true">
                   <i class="fas fa-ambulance"></i>
                 </div>
                 <h3>Emergency Care</h3>
                 <p>Round-the-clock emergency medical services with rapid response capabilities, state-of-the-art equipment, and experienced emergency physicians for critical care.</p>
                 <a href="services.html" class="btn-learn-more">
+                  <button type="button" class = "btn-learn-more">
                   <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
+                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </button>
                 </a>
               </div>
-            </div>
-          </div><!-- End Department Card -->
+            </article>
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Featured Departments Section -->
+    </section>
 
-    <!-- Featured Services Section -->
+     <!-- Featured Services Section -->
     <section id="featured-services" class="featured-services section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Services</h2>
-        <p>Browse our credited mental health features and services.</p>
+        <h2>Featured Resources</h2>
+        <p>Browse our credited mental health resources and services.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -421,7 +470,7 @@
                   <li><i class="fas fa-check-circle"></i>Deaf & Blind Accessibility</li>
                   <li><i class="fas fa-check-circle"></i>24-7, 365 days a year</li>
                 </ul>
-                <a href="services.html" class="service-btn">
+                <a href="https://concordcounseling.org/" class="service-btn">
                   Learn More
                   <i class="fas fa-arrow-right"></i>
                 </a>
@@ -442,7 +491,7 @@
                   <li><i class="fas fa-check-circle"></i>Employment Assistance</li>
                   <li><i class="fas fa-check-circle"></i>Homeless Shelter</li>
                 </ul>
-                <a href="services.html" class="service-btn">
+                <a href="https://warmwesterville.org/" class="service-btn">
                   Learn More
                   <i class="fas fa-arrow-right"></i>
                 </a>
@@ -463,7 +512,7 @@
                   <li><i class="fas fa-check-circle"></i>Language Accessibility</li>
                   <li><i class="fas fa-check-circle"></i>24/7 Care</li>
                 </ul>
-                <a href="services.html" class="service-btn">
+                <a href="https://www.samhsa.gov/" class="service-btn">
                   Learn More
                   <i class="fas fa-arrow-right"></i>
                 </a>
@@ -498,212 +547,6 @@
 
     </section><!-- /Featured Services Section -->
 
-    <!-- Find A Doctor Section -->
-    <section id="find-a-doctor" class="find-a-doctor section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Find A Doctor</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="col-lg-12">
-            <div class="search-container">
-              <form class="search-form" action="forms/doctor-search.php" method="get">
-                <div class="row g-3">
-                  <div class="col-md-4">
-                    <input type="text" class="form-control" name="doctor_name" placeholder="Doctor name or keyword">
-                  </div>
-                  <div class="col-md-4">
-                    <select class="form-select" name="specialty" id="specialty-select">
-                      <option value="">Select Specialty</option>
-                      <option value="cardiology">Cardiology</option>
-                      <option value="neurology">Neurology</option>
-                      <option value="orthopedics">Orthopedics</option>
-                      <option value="pediatrics">Pediatrics</option>
-                      <option value="dermatology">Dermatology</option>
-                      <option value="oncology">Oncology</option>
-                      <option value="surgery">Surgery</option>
-                      <option value="emergency">Emergency Medicine</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary w-100">
-                      <i class="bi bi-search me-2"></i>Search Doctor
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="400">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-3.webp" alt="Dr. Sarah Mitchell" class="img-fluid">
-                <div class="availability-badge online">Available</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. Sarah Mitchell</h5>
-                <p class="specialty">Cardiology</p>
-                <p class="experience">15+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <span class="rating-text">(4.9)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-7.webp" alt="Dr. Michael Rodriguez" class="img-fluid">
-                <div class="availability-badge busy">In Surgery</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. Michael Rodriguez</h5>
-                <p class="specialty">Neurology</p>
-                <p class="experience">12+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                  <span class="rating-text">(4.7)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-1.webp" alt="Dr. Emily Chen" class="img-fluid">
-                <div class="availability-badge online">Available</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. Emily Chen</h5>
-                <p class="specialty">Pediatrics</p>
-                <p class="experience">8+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <span class="rating-text">(5.0)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-9.webp" alt="Dr. James Thompson" class="img-fluid">
-                <div class="availability-badge offline">Next: Tomorrow 9AM</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. James Thompson</h5>
-                <p class="specialty">Orthopedics</p>
-                <p class="experience">20+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
-                  <span class="rating-text">(4.8)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-5.webp" alt="Dr. Lisa Anderson" class="img-fluid">
-                <div class="availability-badge online">Available</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. Lisa Anderson</h5>
-                <p class="specialty">Dermatology</p>
-                <p class="experience">10+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star"></i>
-                  <span class="rating-text">(4.6)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/health/staff-12.webp" alt="Dr. Robert Kim" class="img-fluid">
-                <div class="availability-badge online">Available</div>
-              </div>
-              <div class="doctor-info">
-                <h5>Dr. Robert Kim</h5>
-                <p class="specialty">Oncology</p>
-                <p class="experience">18+ years experience</p>
-                <div class="rating">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <span class="rating-text">(4.9)</span>
-                </div>
-                <div class="appointment-actions">
-                  <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-                  <a href="#" class="btn btn-primary btn-sm">Book Appointment</a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Doctor Card -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Find A Doctor Section -->
-
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section">
 
@@ -711,8 +554,10 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2 data-aos="fade-up" data-aos-delay="200">Your Health is Our Priority</h2>
-            <p data-aos="fade-up" data-aos-delay="250">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <h2 data-aos="fade-up" data-aos-delay="200">"Believe In Your Ability To Overcome Challenges."</h2>
+            <h4 data-aos="fade-up" data-aos-delay="200">-Johnathan Edwards</h4>
+            <br>
+            <p data-aos="fade-up" data-aos-delay="250">You are stronger than you think. Mental health battles aren't easy by any means, but you are able to overcome anything you are dealing with when you have the proper resources.</p>
 
             <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
               <a href="appointment.html" class="btn-primary">Book Appointment</a>
@@ -793,180 +638,134 @@
 
     </section><!-- /Call To Action Section -->
 
-    <!-- Emergency Info Section -->
-    <section id="emergency-info" class="emergency-info section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Emergency Info</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <!-- Faq Section -->
+    <section id="faq" class="faq section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-
-            <!-- Emergency Alert Banner -->
-            <div class="emergency-alert" data-aos="zoom-in" data-aos-delay="100">
-              <div class="alert-icon">
-                <i class="bi bi-exclamation-triangle-fill"></i>
+        <div class="row gy-5">
+          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
+            <div class="faq-contact-card">
+              <div class="card-icon">
+                <i class="bi bi-question-circle"></i>
               </div>
-              <div class="alert-content">
-                <h3>Medical Emergency?</h3>
-                <p>If you are experiencing a life-threatening emergency, call 911 immediately or go to your nearest emergency room.</p>
+              <div class="card-content">
+                <h3>Still Have Questions?</h3>
+                <p>Have any questions go unanswered? Contact out support team to ask them any questions in mind.</p>
+                <div class="contact-options">
+                  <a href="contact.html" class="contact-option">
+                    <i class="bi bi-envelope"></i>
+                    <span>Contact Us</span>
+                  </a>
+                  <a href="appointment.html" class="contact-option">
+                    <i class="bi bi-chat-dots"></i>
+                    <span>Book Appointment</span>
+                  </a>
+                  <a href="#" class="contact-option">
+                    <i class="bi bi-telephone"></i>
+                    <span>Call Us</span>
+                  </a>
+                </div>
               </div>
-              <div class="alert-action">
-                <a href="tel:911" class="btn btn-emergency">
-                  <i class="bi bi-telephone-fill"></i>
-                  Call 911
-                </a>
-              </div>
-            </div><!-- End Emergency Alert -->
+            </div>
+          </div>
 
-            <!-- Emergency Contact Grid -->
-            <div class="row emergency-contacts" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="col-md-6 mb-4">
-                <div class="contact-card urgent">
-                  <div class="card-icon">
-                    <i class="bi bi-hospital"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Emergency Room</h4>
-                    <p class="contact-info">
-                      <i class="bi bi-telephone"></i>
-                      <span>+1 (555) 123-4567</span>
-                    </p>
-                    <p class="address">
-                      <i class="bi bi-geo-alt"></i>
-                      1245 Healthcare Blvd, Medical City, CA 90210
-                    </p>
-                    <p class="hours">Open 24/7</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="tel:+15551234567" class="btn btn-contact">Call Now</a>
-                  </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-accordion">
+              <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <h3>What special about HorizonHelp?</h3>
+                  <i class="bi bi-chevron-down faq-toggle"></i>
                 </div>
-              </div><!-- End Emergency Room Card -->
-
-              <div class="col-md-6 mb-4">
-                <div class="contact-card">
-                  <div class="card-icon">
-                    <i class="bi bi-clock"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Urgent Care</h4>
-                    <p class="contact-info">
-                      <i class="bi bi-telephone"></i>
-                      <span>+1 (555) 987-6543</span>
-                    </p>
-                    <p class="address">
-                      <i class="bi bi-geo-alt"></i>
-                      892 Wellness Ave, Health District, CA 90211
-                    </p>
-                    <p class="hours">Mon-Sun: 7:00 AM - 10:00 PM</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="tel:+15559876543" class="btn btn-contact">Call Now</a>
-                  </div>
+                <div class="faq-content">
+                  <p>
+                    Here at HorizonHelp offer services and resources that can be helpful to anyone. No matter what you might be battling, we can help.
+                  </p>
                 </div>
-              </div><!-- End Urgent Care Card -->
+              </div><!-- End FAQ Item-->
 
-              <div class="col-md-6 mb-4">
-                <div class="contact-card">
-                  <div class="card-icon">
-                    <i class="bi bi-headset"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Nurse Helpline</h4>
-                    <p class="contact-info">
-                      <i class="bi bi-telephone"></i>
-                      <span>+1 (555) 456-7890</span>
-                    </p>
-                    <p class="description">24/7 medical advice and guidance</p>
-                    <p class="hours">Available 24/7</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="tel:+15554567890" class="btn btn-contact">Call Now</a>
-                  </div>
+              <div class="faq-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <h3>How can your resources help my mental health battle?</h3>
+                  <i class="bi bi-chevron-down faq-toggle"></i>
                 </div>
-              </div><!-- End Nurse Helpline Card -->
-
-              <div class="col-md-6 mb-4">
-                <div class="contact-card">
-                  <div class="card-icon">
-                    <i class="bi bi-heart-pulse"></i>
-                  </div>
-                  <div class="card-content">
-                    <h4>Poison Control</h4>
-                    <p class="contact-info">
-                      <i class="bi bi-telephone"></i>
-                      <span>1-800-222-1222</span>
-                    </p>
-                    <p class="description">National poison control hotline</p>
-                    <p class="hours">Available 24/7</p>
-                  </div>
-                  <div class="card-action">
-                    <a href="tel:18002221222" class="btn btn-contact">Call Now</a>
-                  </div>
+                <div class="faq-content">
+                  <p>
+                    Our resources range from medication to one-on-one therapy sessions. We understand everyones mind works differently, thats why we offer specialized treatment catered towards your needs.
+                  </p>
                 </div>
-              </div><!-- End Poison Control Card -->
+              </div><!-- End FAQ Item-->
 
-            </div><!-- End Emergency Contacts -->
+              <div class="faq-item">
+                <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <h3>What mental disorders do you specialize in?</h3>
+                  <i class="bi bi-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-content">
+                  <p>
+                    We specialize in all! From depression to PTSD to even schizophrenia. We have extensive resources that can help you no matter what you are going through.
+                  </p>
+                </div>
+              </div><!-- End FAQ Item-->
+
+              <div class="faq-item">
+                <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <h3>Can I schedule a doctor?</h3>
+                  <i class="bi bi-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-content">
+                  <p>
+                    We provide easy ways to schedule doctors. Simply go to the doctor page and fill out your desired doctors medical form. It's that easy.
+                  </p>
+                </div>
+              </div><!-- End FAQ Item-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+     <!-- Emergency Info Section -->
+    <section id="emergency-info" class="emergency-info section">
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <!-- Quick Actions -->
             <div class="quick-actions" data-aos="fade-up" data-aos-delay="300">
               <h4>Quick Actions</h4>
               <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                  <a href="#" class="action-link">
+                  <a href="contact.html" class="action-link">
                     <i class="bi bi-geo-alt-fill"></i>
                     <span>Get Directions</span>
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="#" class="action-link">
+                  <a href="appointment.html" class="action-link">
                     <i class="bi bi-calendar-check"></i>
                     <span>Book Appointment</span>
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="#" class="action-link">
+                  <a href="doctors.html" class="action-link">
                     <i class="bi bi-person-badge"></i>
                     <span>Find a Doctor</span>
                   </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
-                  <a href="#" class="action-link">
+                  <a href="gallery.html" class="action-link">
                     <i class="bi bi-chat-dots"></i>
-                    <span>Live Chat</span>
+                    <span>Blog</span>
                   </a>
                 </div>
               </div>
             </div><!-- End Quick Actions -->
-
-            <!-- Emergency Preparation Tips -->
-            <div class="emergency-tips" data-aos="fade-up" data-aos-delay="400">
-              <h4>When to Seek Emergency Care</h4>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="emergency-list">
-                    <li><i class="bi bi-check-circle"></i> Chest pain or difficulty breathing</li>
-                    <li><i class="bi bi-check-circle"></i> Severe allergic reactions</li>
-                    <li><i class="bi bi-check-circle"></i> Major trauma or injuries</li>
-                    <li><i class="bi bi-check-circle"></i> Signs of stroke or heart attack</li>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="emergency-list">
-                    <li><i class="bi bi-check-circle"></i> Severe burns or bleeding</li>
-                    <li><i class="bi bi-check-circle"></i> Loss of consciousness</li>
-                    <li><i class="bi bi-check-circle"></i> Severe abdominal pain</li>
-                    <li><i class="bi bi-check-circle"></i> High fever with confusion</li>
-                  </ul>
-                </div>
-              </div>
-            </div><!-- End Emergency Tips -->
 
           </div>
         </div>
@@ -975,76 +774,12 @@
 
     </section><!-- /Emergency Info Section -->
 
+
   </main>
 
   <footer id="footer" class="footer position-relative light-background">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">MediTrust</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
@@ -1081,33 +816,1318 @@
   <div class="chat-button" id="chatBtn" title="Chat with mental health assistant">
     <img src="assets/img/health/staff-7.webp" alt="assistant">
   </div>
+  
 
-<div class="chatbox" id="chatBox">
-  <div class="chatbox-header">
+<div class="chatbot" id="chatBot">
+  <div class="chatbot-header">
     <img class="avatar-small" src="assets/img/health/staff-7.webp" alt="avatar">
     <div>
       <div style="font-weight:700">Wellness Assistant</div>
-      <div style="font-size:12px; opacity:0.95">I’m here to listen.</div>
+      <div style="font-size:12px; opacity:0.95">I'm here to listen.</div>
     </div>
+    <button class="chatbot-close" id="chatCloseBtn" aria-label="Close chat">×</button>
   </div>
-  
 
-  <div class="chatbox-body" id="chatBody">
+  <div class="chatbot-body" id="chatBody">
     <div class="msg ai">
-      Hi! — I’m your personal wellness assistant. If you’re suffering from anything, let me know and I can provide ways to help.
+      Hi! — I'm your personal wellness assistant. If you're suffering from anything, let me know and I can provide ways to help.
     </div>
-    <zdiv class="crisis-banner" id="crisisBanner">
+    <div class="crisis-banner" id="crisisBanner">
       If you are thinking about harming yourself, please call <strong>988</strong> (U.S.) or your local crisis hotline.
     </div>
+  </div>
 
-      <div class="chatbox-input">
-    <input id="userInput" placeholder="Type how you’re feeling..." />
+  <div class="chatbot-input">
+    <input id="userInput" placeholder="Type how you're feeling..." />
     <button id="sendBtn">Send</button>
-    <script src="assets/js/Chatbot.js"></script>
   </div>
+</div>
+
+<script src="assets/js/Chatbot.js"></script>
 
   </div>
 
+<!-- Depression Modal -->
+<div class="modal fade" id="depressionModal" tabindex="-1" aria-labelledby="depressionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none; padding: 1rem 1.5rem;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        
+        <!-- Depression Information Content -->
+        <section id="depression-info" class="section light-background" style="padding: 20px 0 60px 0;">
+          <div class="container">
+
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+
+                <!-- Blog Container -->
+                <div class="blog-container">
+
+                  <!-- Hero Image with Overlay -->
+                  <div class="blog-hero">
+                    <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0121.JPG" alt="Depression support and understanding">
+                    <div class="blog-hero-overlay">
+                      <h1>Depression: What You Need to Know</h1>
+                      <div class="meta">
+                        <span><i class="bi bi-heart-pulse"></i> Mental Health</span>
+                        <span><i class="bi bi-clock"></i> 8 min read</span>
+                        <span><i class="bi bi-info-circle"></i> Clinical Resources</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Blog Content -->
+                  <div class="blog-content">
+
+                    <!-- Introduction -->
+                    <div class="blog-intro">
+                      <i class="bi bi-lightbulb" style="color: var(--accent-color); font-size: 24px; margin-right: 10px;"></i>
+                      Depression is more than just feeling sad or going through a rough patch. It's a serious mental health condition that affects millions of people worldwide. Understanding depression is the first step toward recovery and supporting those who are struggling.
+                    </div>
+
+                    <!-- Crisis Alert -->
+                    <div class="crisis-alert">
+                      <div class="icon-wrapper">
+                        <i class="bi bi-exclamation-triangle"></i>
+                      </div>
+                      <div class="content">
+                        <h4>Need Immediate Help?</h4>
+                        <p>If you're in crisis, call the National Suicide Prevention Lifeline at <a href="tel:988">988</a> or text "HELLO" to 741741. Help is available 24/7.</p>
+                      </div>
+                    </div>
+
+                    <!-- What is Depression -->
+                    <div class="understanding-depression">
+                      <h4><i class="bi bi-question-circle"></i> What is Depression?</h4>
+                      <p>Depression (major depressive disorder) is a common and serious medical illness that negatively affects how you feel, think, and act. It causes persistent feelings of sadness and loss of interest in activities you once enjoyed.</p>
+                      <p>Depression is not a sign of weakness or something you can simply "snap out of." It requires proper treatment and support to overcome.</p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> Affects mood, thoughts, and behavior</li>
+                        <li><i class="bi bi-check-circle"></i> Can impact physical health</li>
+                        <li><i class="bi bi-check-circle"></i> Treatable with professional help</li>
+                        <li><i class="bi bi-check-circle"></i> Common across all age groups</li>
+                      </ul>
+                    </div>
+
+                    <!-- Common Symptoms -->
+                    <div class="tip-card">
+                      <div class="tip-icon">
+                        <i class="bi bi-clipboard-pulse"></i>
+                      </div>
+                      <div class="tip-content">
+                        <h3>Recognizing the Symptoms</h3>
+                        <p>Depression symptoms can vary from mild to severe and may include: persistent sad, anxious, or "empty" mood; loss of interest in hobbies and activities; difficulty sleeping or oversleeping; changes in appetite or weight; loss of energy or increased fatigue; difficulty thinking, concentrating, or making decisions; feelings of worthlessness or guilt; and thoughts of death or suicide. If you experience several of these symptoms for two weeks or more, it's important to seek professional help.</p>
+                      </div>
+                    </div>
+
+                    <!-- Types of Depression -->
+                    <div class="depression-types">
+                      <h4>Types of Depression</h4>
+                      <div class="types-grid">
+                        <div class="type-card">
+                          <i class="bi bi-cloud-rain"></i>
+                          <h5>Major Depression</h5>
+                          <p>Severe symptoms that interfere with daily activities, lasting at least two weeks.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-graph-down"></i>
+                          <h5>Persistent Depressive Disorder</h5>
+                          <p>Chronic depression lasting two years or longer with varying symptom intensity.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-moon-stars"></i>
+                          <h5>Seasonal Affective Disorder</h5>
+                          <p>Depression that occurs during specific seasons, typically winter months.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="quote-block">
+                      <p>"Depression is being colorblind and constantly told how colorful the world is."</p>
+                      <cite>— Atticus</cite>
+                    </div>
+
+                    <!-- Treatment Options -->
+                    <div class="tip-card">
+                      <div class="tip-icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                      </div>
+                      <div class="tip-content">
+                        <h3>Treatment Options</h3>
+                        <p>Depression is one of the most treatable mental health conditions. Treatment typically involves a combination of psychotherapy (talk therapy), medication, and lifestyle changes. Cognitive Behavioral Therapy (CBT) and Interpersonal Therapy (IPT) have proven highly effective. Antidepressant medications can help correct chemical imbalances in the brain. Many people benefit from a combination approach tailored to their specific needs.</p>
+                      </div>
+                    </div>
+
+                    <!-- Action Steps -->
+                    <div class="action-steps">
+                      <h4><i class="bi bi-list-check"></i> Steps Toward Recovery</h4>
+                      <div class="steps-grid">
+                        <div class="step-item">
+                          <div class="step-number">1</div>
+                          <h5>Seek Professional Help</h5>
+                          <p>Consult with a mental health professional for proper diagnosis and treatment.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">2</div>
+                          <h5>Follow Treatment Plan</h5>
+                          <p>Stick with therapy sessions and medication as prescribed by your doctor.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">3</div>
+                          <h5>Build Support System</h5>
+                          <p>Connect with family, friends, or support groups who understand your journey.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Lifestyle Changes -->
+                    <div class="lifestyle-changes">
+                      <h4><i class="bi bi-sunrise"></i> Lifestyle Changes That Help</h4>
+                      <div class="lifestyle-grid">
+                        <div class="lifestyle-item">
+                          <i class="bi bi-activity"></i>
+                          <div>
+                            <h5>Regular Exercise</h5>
+                            <p>Physical activity releases endorphins and can significantly improve mood and reduce symptoms.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-moon"></i>
+                          <div>
+                            <h5>Quality Sleep</h5>
+                            <p>Maintain a consistent sleep schedule and aim for 7-9 hours of sleep each night.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-egg-fried"></i>
+                          <div>
+                            <h5>Nutritious Diet</h5>
+                            <p>Eating balanced meals can help stabilize mood and energy levels throughout the day.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-cup-hot"></i>
+                          <div>
+                            <h5>Stress Management</h5>
+                            <p>Practice relaxation techniques like meditation, yoga, or deep breathing exercises.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Therapy Options -->
+                    <div class="therapy-options">
+                      <h4>Evidence-Based Therapies</h4>
+                      <div class="therapy-grid">
+                        <div class="therapy-card">
+                          <h5>Cognitive Behavioral Therapy (CBT)</h5>
+                          <p>Helps identify and change negative thought patterns and behaviors that contribute to depression.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Interpersonal Therapy (IPT)</h5>
+                          <p>Focuses on improving relationships and communication patterns that may affect mood.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Mindfulness-Based Therapy</h5>
+                          <p>Teaches present-moment awareness and acceptance to reduce depressive symptoms.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Group Therapy</h5>
+                          <p>Provides peer support and shared experiences in a safe, facilitated environment.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Myth Busting -->
+                    <div class="myth-busting">
+                      <h4><i class="bi bi-x-circle"></i> Common Myths About Depression</h4>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Depression is just sadness and you can "snap out of it."</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>Depression is a medical condition requiring professional treatment, not just willpower.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Antidepressants will change your personality.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>Medications help restore chemical balance and return you to feeling like yourself.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Talking about depression makes it worse.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>Open communication is crucial for recovery and reducing stigma around mental health.</p>
+                      </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="conclusion-box">
+                      <div class="icon-wrapper">
+                        <i class="bi bi-heart"></i>
+                      </div>
+                      <h4>Recovery is Possible</h4>
+                      <p>With proper treatment and support, most people with depression can achieve significant improvement in their symptoms. Remember, seeking help is a sign of strength, not weakness. You don't have to face depression alone—professional support is available and effective.</p>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="cta-section">
+                      <h3>Ready to Take the First Step?</h3>
+                      <p>Our experienced mental health professionals are here to support you on your journey to wellness.</p>
+                      <a href="appointment.html" class="btn-cta" data-bs-dismiss="modal">
+                        <i class="bi bi-calendar-check"></i>
+                        Schedule a Consultation
+                      </a>
+                    </div>
+
+                    <!-- Related Articles -->
+                    <div class="related-articles">
+                      <h4>Related Resources</h4>
+                      <div class="row g-4">
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Understanding Anxiety Disorders</h5>
+                            <p>Learn about anxiety symptoms and effective treatment approaches.</p>
+                            <a href="#" class="read-more" data-bs-dismiss="modal">
+                              Learn More <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>PTSD Treatment Options</h5>
+                            <p>Comprehensive guide to trauma-focused therapies and recovery.</p>
+                            <a href="#" class="read-more" data-bs-dismiss="modal">
+                              Learn More <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Mental Health Resources</h5>
+                            <p>Access crisis hotlines, support groups, and educational materials.</p>
+                            <a href="services.html" class="read-more" data-bs-dismiss="modal">
+                              View Resources <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div><!-- End blog-content -->
+
+                </div><!-- End blog-container -->
+
+              </div><!-- End col -->
+            </div><!-- End row -->
+
+          </div><!-- End container -->
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Anxiety Modal -->
+<div class="modal fade" id="anxietyModal" tabindex="-1" aria-labelledby="anxietyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none; padding: 1rem 1.5rem;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        
+        <!-- Anxiety Information Content -->
+        <section id="anxiety-info" class="section light-background" style="padding: 20px 0 60px 0;">
+          <div class="container">
+
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+
+                <!-- Blog Container -->
+                <div class="blog-container">
+
+                  <!-- Hero Image with Overlay -->
+                  <div class="blog-hero">
+                    <img src="assets/img/Clinical Medical Assisting/BP/IMG_9919.JPG" alt="Understanding anxiety and treatment">
+                    <div class="blog-hero-overlay">
+                      <h1>Understanding Anxiety Disorders</h1>
+                      <div class="meta">
+                        <span><i class="bi bi-heart-pulse"></i> Mental Health</span>
+                        <span><i class="bi bi-clock"></i> 7 min read</span>
+                        <span><i class="bi bi-info-circle"></i> Clinical Resources</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Blog Content -->
+                  <div class="blog-content">
+
+                    <!-- Introduction -->
+                    <div class="blog-intro">
+                      <i class="bi bi-lightbulb" style="color: var(--accent-color); font-size: 24px; margin-right: 10px;"></i>
+                      Anxiety disorders are among the most common mental health conditions, affecting millions of people worldwide. While everyone experiences anxiety from time to time, anxiety disorders involve more than temporary worry or fear and can significantly impact daily life.
+                    </div>
+
+                    <!-- Crisis Alert -->
+                    <div class="crisis-alert">
+                      <div class="icon-wrapper">
+                        <i class="bi bi-exclamation-triangle"></i>
+                      </div>
+                      <div class="content">
+                        <h4>Need Immediate Help?</h4>
+                        <p>If you're experiencing a panic attack or crisis, call the National Suicide Prevention Lifeline at <a href="tel:988">988</a> or text "HELLO" to 741741. Help is available 24/7.</p>
+                      </div>
+                    </div>
+
+                    <!-- What is Anxiety -->
+                    <div class="understanding-anxiety">
+                      <h4><i class="bi bi-question-circle"></i> What is Anxiety?</h4>
+                      <p>Anxiety is your body's natural response to stress—a feeling of fear or apprehension about what's to come. However, anxiety disorders involve excessive fear or anxiety that persists, can worsen over time, and interferes with daily activities, work, school, and relationships.</p>
+                      <p>Unlike the relatively mild, brief anxiety caused by a stressful event, anxiety disorders last at least six months and can get worse if not treated properly.</p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> More than temporary worry or fear</li>
+                        <li><i class="bi bi-check-circle"></i> Persistent and can interfere with daily activities</li>
+                        <li><i class="bi bi-check-circle"></i> Highly treatable with therapy and medication</li>
+                        <li><i class="bi bi-check-circle"></i> Often begins in childhood or adolescence</li>
+                      </ul>
+                    </div>
+
+                    <!-- Common Symptoms -->
+                    <div class="tip-card">
+                      <div class="tip-icon">
+                        <i class="bi bi-clipboard-pulse"></i>
+                      </div>
+                      <div class="tip-content">
+                        <h3>Recognizing Anxiety Symptoms</h3>
+                        <p>Anxiety symptoms can vary widely but commonly include: excessive worrying that's difficult to control; restlessness or feeling on edge; being easily fatigued; difficulty concentrating; irritability; muscle tension; sleep disturbances; rapid heartbeat or palpitations; sweating, trembling, or shaking; shortness of breath; and gastrointestinal problems. Physical symptoms often accompany the emotional distress, making anxiety a whole-body experience.</p>
+                      </div>
+                    </div>
+
+                    <!-- Types of Anxiety -->
+                    <div class="anxiety-types">
+                      <h4>Types of Anxiety Disorders</h4>
+                      <div class="types-grid">
+                        <div class="type-card">
+                          <i class="bi bi-lightning"></i>
+                          <h5>Generalized Anxiety Disorder</h5>
+                          <p>Persistent and excessive worry about various aspects of daily life for at least six months.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-exclamation-circle"></i>
+                          <h5>Panic Disorder</h5>
+                          <p>Recurrent unexpected panic attacks with intense fear and physical symptoms.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-people"></i>
+                          <h5>Social Anxiety Disorder</h5>
+                          <p>Intense fear of social situations and being judged or scrutinized by others.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Quote -->
+                    <div class="quote-block">
+                      <p>"Anxiety is like a rocking chair. It gives you something to do, but it doesn't get you very far."</p>
+                      <cite>— Jodi Picoult</cite>
+                    </div>
+
+                    <!-- Treatment Options -->
+                    <div class="tip-card">
+                      <div class="tip-icon">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                      </div>
+                      <div class="tip-content">
+                        <h3>Effective Treatment Approaches</h3>
+                        <p>Anxiety disorders are highly treatable, and most people respond well to therapy, medication, or a combination of both. Cognitive Behavioral Therapy (CBT) is particularly effective for anxiety, helping you identify and change thought patterns that lead to anxious feelings. Exposure therapy gradually helps you face feared situations. Medications like SSRIs can help manage symptoms. Lifestyle modifications including regular exercise, adequate sleep, and stress management techniques also play a crucial role in recovery.</p>
+                      </div>
+                    </div>
+
+                    <!-- Therapy Benefits -->
+                    <div class="therapy-benefits">
+                      <h4><i class="bi bi-heart"></i> Benefits of Therapy for Anxiety</h4>
+                      <div class="benefits-grid">
+                        <div class="benefit-item">
+                          <i class="bi bi-brain"></i>
+                          <div>
+                            <h5>Learn Coping Strategies</h5>
+                            <p>Develop practical tools to manage anxious thoughts and physical symptoms effectively.</p>
+                          </div>
+                        </div>
+                        <div class="benefit-item">
+                          <i class="bi bi-lightning-charge"></i>
+                          <div>
+                            <h5>Identify Triggers</h5>
+                            <p>Understand what situations or thoughts activate your anxiety and how to address them.</p>
+                          </div>
+                        </div>
+                        <div class="benefit-item">
+                          <i class="bi bi-shield-check"></i>
+                          <div>
+                            <h5>Build Resilience</h5>
+                            <p>Strengthen your ability to handle stressful situations without becoming overwhelmed.</p>
+                          </div>
+                        </div>
+                        <div class="benefit-item">
+                          <i class="bi bi-graph-up"></i>
+                          <div>
+                            <h5>Improve Quality of Life</h5>
+                            <p>Reduce anxiety's impact on work, relationships, and daily activities for lasting improvement.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Therapy Options -->
+                    <div class="therapy-options">
+                      <h4>Evidence-Based Therapies</h4>
+                      <div class="therapy-grid">
+                        <div class="therapy-card">
+                          <h5>Cognitive Behavioral Therapy (CBT)</h5>
+                          <p>Teaches you to recognize and change negative thought patterns and behaviors that trigger anxiety.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Exposure Therapy</h5>
+                          <p>Gradual exposure to anxiety-provoking situations in a safe environment to reduce fear responses.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Acceptance and Commitment Therapy</h5>
+                          <p>Focuses on accepting anxious thoughts rather than fighting them while committing to positive actions.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Mindfulness-Based Therapy</h5>
+                          <p>Uses meditation and present-moment awareness to reduce anxiety and improve emotional regulation.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- What to Expect -->
+                    <div class="what-to-expect">
+                      <h4><i class="bi bi-calendar-check"></i> What to Expect in Treatment</h4>
+                      <div class="expect-grid">
+                        <div class="expect-item">
+                          <i class="bi bi-chat-dots"></i>
+                          <div>
+                            <h5>Initial Assessment</h5>
+                            <p>Your therapist will evaluate your symptoms, triggers, and how anxiety affects your daily life.</p>
+                          </div>
+                        </div>
+                        <div class="expect-item">
+                          <i class="bi bi-clipboard-data"></i>
+                          <div>
+                            <h5>Personalized Treatment Plan</h5>
+                            <p>Together, you'll create a tailored approach based on your specific needs and goals.</p>
+                          </div>
+                        </div>
+                        <div class="expect-item">
+                          <i class="bi bi-tools"></i>
+                          <div>
+                            <h5>Skill Building Sessions</h5>
+                            <p>Learn and practice anxiety management techniques during regular therapy sessions.</p>
+                          </div>
+                        </div>
+                        <div class="expect-item">
+                          <i class="bi bi-arrow-repeat"></i>
+                          <div>
+                            <h5>Ongoing Progress Monitoring</h5>
+                            <p>Regular check-ins to assess improvement and adjust treatment strategies as needed.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Self-Help Strategies -->
+                    <div class="tip-card">
+                      <div class="tip-icon">
+                        <i class="bi bi-book"></i>
+                      </div>
+                      <div class="tip-content">
+                        <h3>Self-Help Strategies</h3>
+                        <p>While professional treatment is important, there are several things you can do on your own to manage anxiety: Practice deep breathing exercises and progressive muscle relaxation. Maintain a regular sleep schedule and get adequate rest. Limit caffeine and alcohol consumption. Exercise regularly—physical activity is a powerful anxiety reducer. Stay connected with supportive friends and family. Challenge negative thoughts by questioning their validity. Keep a journal to track triggers and patterns. Remember, these strategies complement but don't replace professional treatment.</p>
+                      </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="conclusion-box">
+                      <div class="icon-wrapper">
+                        <i class="bi bi-heart"></i>
+                      </div>
+                      <h4>You Can Overcome Anxiety</h4>
+                      <p>Anxiety disorders are among the most treatable mental health conditions. With proper treatment, the vast majority of people with anxiety disorders can learn to manage their symptoms and lead fulfilling lives. Don't let anxiety control your life—reach out for professional help today and take the first step toward recovery.</p>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="cta-section">
+                      <h3>Ready to Find Relief from Anxiety?</h3>
+                      <p>Our experienced therapists specialize in anxiety treatment and are here to help you regain control.</p>
+                      <a href="appointment.html" class="btn-cta" data-bs-dismiss="modal">
+                        <i class="bi bi-calendar-check"></i>
+                        Schedule a Consultation
+                      </a>
+                    </div>
+
+                    <!-- Related Articles -->
+                    <div class="related-articles">
+                      <h4>Related Resources</h4>
+                      <div class="row g-4">
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Understanding Depression</h5>
+                            <p>Learn about depression symptoms and comprehensive treatment options.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#depressionModal" data-bs-dismiss="modal">
+                              Learn More <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>PTSD and Trauma</h5>
+                            <p>Comprehensive guide to trauma-focused therapies and recovery resources.</p>
+                            <a href="#" class="read-more" data-bs-dismiss="modal">
+                              Learn More <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Stress Management Techniques</h5>
+                            <p>Practical strategies for managing daily stress and building resilience.</p>
+                            <a href="services.html" class="read-more" data-bs-dismiss="modal">
+                              View Resources <i class="bi bi-arrow-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div><!-- End blog-content -->
+
+                </div><!-- End blog-container -->
+
+              </div><!-- End col -->
+            </div><!-- End row -->
+
+          </div><!-- End container -->
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- PTSD Modal -->
+<div class="modal fade" id="ptsdModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none; padding: 1rem 1.5rem;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        
+        <section class="section light-background" style="padding: 20px 0 60px 0;">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+                <div class="blog-container">
+                  
+                  <div class="blog-hero">
+                    <img src="assets/img/Healthcare Tech/Kya/IMG_9974.JPG" alt="PTSD support">
+                    <div class="blog-hero-overlay">
+                      <h1>Understanding PTSD</h1>
+                      <div class="meta">
+                        <span><i class="bi bi-heart-pulse"></i> Mental Health</span>
+                        <span><i class="bi bi-clock"></i> 7 min read</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="blog-content">
+                    
+                    <div class="blog-intro">
+                      <i class="bi bi-lightbulb" style="color: var(--accent-color); font-size: 24px; margin-right: 10px;"></i>
+                      PTSD develops after experiencing or witnessing traumatic events. With specialized treatment, recovery is possible.
+                    </div>
+
+                    <div class="crisis-alert">
+                      <div class="icon-wrapper"><i class="bi bi-exclamation-triangle"></i></div>
+                      <div class="content">
+                        <h4>Need Immediate Help?</h4>
+                        <p>Crisis: <a href="tel:988">988</a> | Veterans: <a href="tel:988">988, press 1</a> | Text: 741741</p>
+                      </div>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-clipboard-pulse"></i></div>
+                      <div class="tip-content">
+                        <h3>Common Symptoms</h3>
+                        <p>Intrusive memories and flashbacks, nightmares, avoiding trauma reminders, negative mood changes, hypervigilance, difficulty sleeping, emotional numbness, and intense reactions to triggers.</p>
+                      </div>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                      <div class="tip-content">
+                        <h3>Evidence-Based Treatments</h3>
+                        <p>Cognitive Processing Therapy (CPT) helps reframe trauma-related thoughts. EMDR uses bilateral stimulation to process memories. Prolonged Exposure gradually confronts trauma safely. Medications like SSRIs support symptom management.</p>
+                      </div>
+                    </div>
+
+                    <div class="therapy-options">
+                      <h4>Specialized Therapies</h4>
+                      <div class="therapy-grid">
+                        <div class="therapy-card">
+                          <h5>CPT</h5>
+                          <p>Changes how you think about trauma and its aftermath.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>EMDR</h5>
+                          <p>Processes traumatic memories through bilateral stimulation.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Prolonged Exposure</h5>
+                          <p>Safely confronts trauma-related memories and situations.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Trauma-Focused CBT</h5>
+                          <p>Addresses distorted thoughts with coping skills.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="quote-block">
+                      <p>"Healing doesn't mean the damage never existed. It means the damage no longer controls our lives."</p>
+                      <cite>— Akshay Dubey</cite>
+                    </div>
+
+                    <div class="support-resources">
+                      <h4>Crisis Resources</h4>
+                      <div class="resources-grid">
+                        <div class="resource-card">
+                          <h5><i class="bi bi-telephone"></i> Veterans Crisis Line</h5>
+                          <p><a href="tel:988">988</a> press 1 | Text 838255</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-chat-dots"></i> Suicide Prevention</h5>
+                          <p><a href="tel:988">988</a> - Available 24/7</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-shield-check"></i> RAINN</h5>
+                          <p><a href="tel:800-656-4673">800-656-4673</a> Sexual assault support</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-people"></i> Support Groups</h5>
+                          <p>Connect with others who understand</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="conclusion-box">
+                      <div class="icon-wrapper"><i class="bi bi-heart"></i></div>
+                      <h4>Recovery is Possible</h4>
+                      <p>PTSD is treatable. With trauma-focused therapy, many achieve significant improvement and reclaim their lives.</p>
+                    </div>
+
+                    <div class="cta-section">
+                      <h3>Begin Your Healing Journey</h3>
+                      <p>Our trauma specialists provide compassionate, evidence-based care.</p>
+                      <a href="appointment.html" class="btn-cta" data-bs-dismiss="modal">
+                        <i class="bi bi-calendar-check"></i> Schedule Consultation
+                      </a>
+                    </div>
+
+                    <div class="related-articles">
+                      <h4>Related Resources</h4>
+                      <div class="row g-4">
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Depression</h5>
+                            <p>Treatment options and support.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#depressionModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Anxiety</h5>
+                            <p>Effective therapeutic approaches.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#anxietyModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>All Services</h5>
+                            <p>View our complete range of care.</p>
+                            <a href="services.html" class="read-more" data-bs-dismiss="modal">View <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Eating Disorders Modal -->
+<div class="modal fade" id="eatingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none; padding: 1rem 1.5rem;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        
+        <section class="section light-background" style="padding: 20px 0 60px 0;">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+                <div class="blog-container">
+                  
+                  <div class="blog-hero">
+                    <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0061.JPG" alt="Eating disorders support">
+                    <div class="blog-hero-overlay">
+                      <h1>Understanding Eating Disorders</h1>
+                      <div class="meta">
+                        <span><i class="bi bi-heart-pulse"></i> Mental Health</span>
+                        <span><i class="bi bi-clock"></i> 8 min read</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="blog-content">
+                    
+                    <div class="blog-intro">
+                      <i class="bi bi-lightbulb" style="color: var(--accent-color); font-size: 24px; margin-right: 10px;"></i>
+                      Eating disorders are serious mental health conditions involving persistent disturbances in eating behaviors, thoughts, and emotions. With comprehensive treatment, full recovery is possible.
+                    </div>
+
+                    <div class="crisis-alert">
+                      <div class="icon-wrapper"><i class="bi bi-exclamation-triangle"></i></div>
+                      <div class="content">
+                        <h4>Need Immediate Help?</h4>
+                        <p>Crisis: <a href="tel:988">988</a> | NEDA Helpline: <a href="tel:800-931-2237">800-931-2237</a> | Text "NEDA" to 741741</p>
+                      </div>
+                    </div>
+
+                    <div class="understanding-depression">
+                      <h4><i class="bi bi-question-circle"></i> What Are Eating Disorders?</h4>
+                      <p>Eating disorders are complex mental health conditions characterized by severe disturbances in eating behaviors and related thoughts and emotions. They affect physical, psychological, and social functioning.</p>
+                      <p>These conditions are not about food, weight, or vanity—they're serious illnesses with biological, psychological, and social factors.</p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> Affect all genders, ages, and backgrounds</li>
+                        <li><i class="bi bi-check-circle"></i> Have the highest mortality rate of any mental illness</li>
+                        <li><i class="bi bi-check-circle"></i> Treatable with specialized care</li>
+                        <li><i class="bi bi-check-circle"></i> Require multidisciplinary treatment approach</li>
+                      </ul>
+                    </div>
+
+                    <div class="depression-types">
+                      <h4>Types of Eating Disorders</h4>
+                      <div class="types-grid">
+                        <div class="type-card">
+                          <i class="bi bi-activity"></i>
+                          <h5>Anorexia Nervosa</h5>
+                          <p>Restricted food intake, intense fear of weight gain, distorted body image.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-arrow-repeat"></i>
+                          <h5>Bulimia Nervosa</h5>
+                          <p>Episodes of binge eating followed by purging behaviors or excessive exercise.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-basket"></i>
+                          <h5>Binge Eating Disorder</h5>
+                          <p>Recurrent episodes of eating large amounts with loss of control, without purging.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-clipboard-pulse"></i></div>
+                      <div class="tip-content">
+                        <h3>Warning Signs</h3>
+                        <p>Preoccupation with weight, food, or body shape; dramatic weight changes; avoiding meals or eating in secret; excessive exercise; using bathroom immediately after meals; wearing baggy clothes; social withdrawal; mood swings; dizziness or fainting; feeling cold frequently; and developing food rituals.</p>
+                      </div>
+                    </div>
+
+                    <div class="quote-block">
+                      <p>"Recovery is not a race. You don't have to feel guilty if it takes you longer than you thought it would."</p>
+                      <cite>— Anonymous</cite>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                      <div class="tip-content">
+                        <h3>Comprehensive Treatment Approach</h3>
+                        <p>Effective treatment requires a multidisciplinary team including medical doctors, dietitians, and mental health professionals. Treatment focuses on normalizing eating patterns, addressing underlying emotional issues, challenging distorted thoughts, improving body image, and developing healthy coping mechanisms. Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), and Family-Based Treatment are evidence-based approaches.</p>
+                      </div>
+                    </div>
+
+                    <div class="action-steps">
+                      <h4><i class="bi bi-list-check"></i> Recovery Steps</h4>
+                      <div class="steps-grid">
+                        <div class="step-item">
+                          <div class="step-number">1</div>
+                          <h5>Medical Assessment</h5>
+                          <p>Comprehensive evaluation of physical and mental health status.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">2</div>
+                          <h5>Treatment Team</h5>
+                          <p>Work with doctors, therapists, and dietitians collaboratively.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">3</div>
+                          <h5>Ongoing Support</h5>
+                          <p>Participate in therapy and maintain regular medical monitoring.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="therapy-options">
+                      <h4>Evidence-Based Therapies</h4>
+                      <div class="therapy-grid">
+                        <div class="therapy-card">
+                          <h5>Cognitive Behavioral Therapy (CBT)</h5>
+                          <p>Addresses distorted thoughts about food, weight, and body image.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Family-Based Treatment (FBT)</h5>
+                          <p>Involves family in supporting nutritional rehabilitation and recovery.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Dialectical Behavior Therapy (DBT)</h5>
+                          <p>Teaches emotion regulation and distress tolerance skills.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Nutritional Counseling</h5>
+                          <p>Develops healthy eating patterns and repairs relationship with food.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="lifestyle-changes">
+                      <h4><i class="bi bi-sunrise"></i> Supporting Recovery</h4>
+                      <div class="lifestyle-grid">
+                        <div class="lifestyle-item">
+                          <i class="bi bi-people"></i>
+                          <div>
+                            <h5>Build Support Network</h5>
+                            <p>Connect with understanding family, friends, and support groups who encourage recovery.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-journal-text"></i>
+                          <div>
+                            <h5>Practice Self-Compassion</h5>
+                            <p>Replace self-criticism with kindness and recognize recovery is not linear.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-shield-check"></i>
+                          <div>
+                            <h5>Avoid Triggers</h5>
+                            <p>Limit exposure to diet culture, scale, and triggering social media content.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-heart"></i>
+                          <div>
+                            <h5>Focus on Health</h5>
+                            <p>Shift focus from appearance to overall wellbeing and life fulfillment.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="myth-busting">
+                      <h4><i class="bi bi-x-circle"></i> Common Myths</h4>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Eating disorders only affect young women.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>They affect people of all genders, ages, races, body types, and socioeconomic backgrounds.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>You can tell if someone has an eating disorder by their weight.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>People with eating disorders can be underweight, normal weight, or overweight.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Eating disorders are about vanity and willpower.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>They are serious mental illnesses with biological, psychological, and social factors.</p>
+                      </div>
+                    </div>
+
+                    <div class="support-resources">
+                      <h4>Support Resources</h4>
+                      <div class="resources-grid">
+                        <div class="resource-card">
+                          <h5><i class="bi bi-telephone"></i> NEDA Helpline</h5>
+                          <p><a href="tel:800-931-2237">800-931-2237</a> - Mon-Thu 9am-9pm ET</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-chat-dots"></i> Crisis Text Line</h5>
+                          <p>Text "NEDA" to 741741 - 24/7 support</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-chat-square-dots"></i> NEDA Online Chat</h5>
+                          <p>Live chat Mon-Thu 9am-9pm ET at NEDA.org</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-people"></i> Support Groups</h5>
+                          <p>Find local and online recovery support communities</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="conclusion-box">
+                      <div class="icon-wrapper"><i class="bi bi-heart"></i></div>
+                      <h4>Full Recovery is Possible</h4>
+                      <p>With comprehensive treatment and support, people with eating disorders can achieve full recovery and develop a healthy relationship with food and their bodies.</p>
+                    </div>
+
+                    <div class="cta-section">
+                      <h3>Begin Your Recovery Journey</h3>
+                      <p>Our specialized eating disorder treatment team provides compassionate, evidence-based care.</p>
+                      <a href="appointment.html" class="btn-cta" data-bs-dismiss="modal">
+                        <i class="bi bi-calendar-check"></i> Schedule Consultation
+                      </a>
+                    </div>
+
+                    <div class="related-articles">
+                      <h4>Related Resources</h4>
+                      <div class="row g-4">
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Depression</h5>
+                            <p>Often co-occurs with eating disorders.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#depressionModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Anxiety</h5>
+                            <p>Frequently accompanies eating disorders.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#anxietyModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>All Services</h5>
+                            <p>View our complete range of care.</p>
+                            <a href="services.html" class="read-more" data-bs-dismiss="modal">View <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Schizophrenia Modal -->
+<div class="modal fade" id="schizophreniaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom: none; padding: 1rem 1.5rem;">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        
+        <section class="section light-background" style="padding: 20px 0 60px 0;">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-11">
+                <div class="blog-container">
+                  
+                  <div class="blog-hero">
+                    <img src="assets/img/Student Services/IMG_9892.JPG" alt="Understanding schizophrenia">
+                    <div class="blog-hero-overlay">
+                      <h1>Understanding Schizophrenia</h1>
+                      <div class="meta">
+                        <span><i class="bi bi-heart-pulse"></i> Mental Health</span>
+                        <span><i class="bi bi-clock"></i> 9 min read</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="blog-content">
+                    
+                    <div class="blog-intro">
+                      <i class="bi bi-lightbulb" style="color: var(--accent-color); font-size: 24px; margin-right: 10px;"></i>
+                      Schizophrenia is a serious mental health condition that affects how a person thinks, feels, and behaves. While it can be challenging, with proper treatment and support, many people with schizophrenia lead meaningful and productive lives.
+                    </div>
+
+                    <div class="crisis-alert">
+                      <div class="icon-wrapper"><i class="bi bi-exclamation-triangle"></i></div>
+                      <div class="content">
+                        <h4>Need Immediate Help?</h4>
+                        <p>Crisis: <a href="tel:988">988</a> | Text "HELLO" to 741741 | Emergency: <a href="tel:911">911</a></p>
+                      </div>
+                    </div>
+
+                    <div class="understanding-depression">
+                      <h4><i class="bi bi-question-circle"></i> What is Schizophrenia?</h4>
+                      <p>Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population. When active, symptoms can include delusions, hallucinations, disorganized speech, trouble with thinking, and lack of motivation.</p>
+                      <p>It's important to understand that schizophrenia is not a split personality or multiple personality disorder. It's a distinct mental health condition that requires specialized treatment.</p>
+                      <ul>
+                        <li><i class="bi bi-check-circle"></i> Affects perception of reality</li>
+                        <li><i class="bi bi-check-circle"></i> Typically emerges in late teens to early 30s</li>
+                        <li><i class="bi bi-check-circle"></i> Treatable with medication and therapy</li>
+                        <li><i class="bi bi-check-circle"></i> Recovery and management are possible</li>
+                      </ul>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-clipboard-pulse"></i></div>
+                      <div class="tip-content">
+                        <h3>Common Symptoms</h3>
+                        <p>Schizophrenia symptoms are typically categorized into positive, negative, and cognitive symptoms. Positive symptoms include hallucinations (seeing or hearing things that aren't there), delusions (false beliefs), and disorganized thinking or speech. Negative symptoms involve reduced emotional expression, lack of motivation, social withdrawal, and difficulty experiencing pleasure. Cognitive symptoms affect memory, attention, and executive functioning.</p>
+                      </div>
+                    </div>
+
+                    <div class="depression-types">
+                      <h4>Types of Symptoms</h4>
+                      <div class="types-grid">
+                        <div class="type-card">
+                          <i class="bi bi-plus-circle"></i>
+                          <h5>Positive Symptoms</h5>
+                          <p>Added experiences like hallucinations, delusions, and thought disorders.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-dash-circle"></i>
+                          <h5>Negative Symptoms</h5>
+                          <p>Loss of normal functions like emotional expression and motivation.</p>
+                        </div>
+                        <div class="type-card">
+                          <i class="bi bi-brain"></i>
+                          <h5>Cognitive Symptoms</h5>
+                          <p>Difficulty with attention, memory, and processing information.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="quote-block">
+                      <p>"Recovery is not one and done. It is a lifelong journey that takes place one day, one step at a time."</p>
+                      <cite>— Unknown</cite>
+                    </div>
+
+                    <div class="tip-card">
+                      <div class="tip-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                      <div class="tip-content">
+                        <h3>Treatment Approaches</h3>
+                        <p>Schizophrenia treatment typically involves a combination of antipsychotic medications and psychosocial interventions. Medications help manage symptoms like hallucinations and delusions by affecting brain chemistry. Psychosocial treatments include individual therapy, family education, social skills training, and supported employment. Early intervention and continuous treatment significantly improve long-term outcomes and quality of life.</p>
+                      </div>
+                    </div>
+
+                    <div class="action-steps">
+                      <h4><i class="bi bi-list-check"></i> Steps to Management</h4>
+                      <div class="steps-grid">
+                        <div class="step-item">
+                          <div class="step-number">1</div>
+                          <h5>Get Professional Diagnosis</h5>
+                          <p>Consult with a psychiatrist for proper evaluation and treatment plan.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">2</div>
+                          <h5>Medication Adherence</h5>
+                          <p>Take prescribed medications consistently, even when feeling better.</p>
+                        </div>
+                        <div class="step-item">
+                          <div class="step-number">3</div>
+                          <h5>Ongoing Support</h5>
+                          <p>Engage in therapy and maintain strong support network.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="lifestyle-changes">
+                      <h4><i class="bi bi-sunrise"></i> Supporting Recovery</h4>
+                      <div class="lifestyle-grid">
+                        <div class="lifestyle-item">
+                          <i class="bi bi-pill"></i>
+                          <div>
+                            <h5>Medication Compliance</h5>
+                            <p>Take medications as prescribed and report side effects to your doctor promptly.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-calendar-check"></i>
+                          <div>
+                            <h5>Routine & Structure</h5>
+                            <p>Maintain regular daily schedules for sleep, meals, and activities.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-ban"></i>
+                          <div>
+                            <h5>Avoid Substances</h5>
+                            <p>Stay away from alcohol and drugs, which can worsen symptoms and interfere with treatment.</p>
+                          </div>
+                        </div>
+                        <div class="lifestyle-item">
+                          <i class="bi bi-people"></i>
+                          <div>
+                            <h5>Stay Connected</h5>
+                            <p>Maintain relationships with supportive family, friends, and support groups.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="therapy-options">
+                      <h4>Evidence-Based Therapies</h4>
+                      <div class="therapy-grid">
+                        <div class="therapy-card">
+                          <h5>Cognitive Behavioral Therapy (CBT)</h5>
+                          <p>Helps identify and change distorted thinking patterns and manage symptoms.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Family Therapy</h5>
+                          <p>Educates family members and improves communication and support systems.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Social Skills Training</h5>
+                          <p>Improves communication and social interactions for better functioning.</p>
+                        </div>
+                        <div class="therapy-card">
+                          <h5>Coordinated Specialty Care</h5>
+                          <p>Team-based approach combining medication, therapy, and support services.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="myth-busting">
+                      <h4><i class="bi bi-x-circle"></i> Common Myths</h4>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>People with schizophrenia are violent and dangerous.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>Most people with schizophrenia are not violent and are more likely to be victims than perpetrators.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>Schizophrenia means having a split or multiple personalities.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>Schizophrenia is a thought disorder, not a personality disorder. Split personality is a different condition.</p>
+                      </div>
+                      <div class="myth-item">
+                        <div class="myth-label">MYTH</div>
+                        <p>People with schizophrenia can't work or live independently.</p>
+                        <div class="truth-label">TRUTH</div>
+                        <p>With proper treatment and support, many people with schizophrenia lead productive, independent lives.</p>
+                      </div>
+                    </div>
+
+                    <div class="support-resources">
+                      <h4>Support Resources</h4>
+                      <div class="resources-grid">
+                        <div class="resource-card">
+                          <h5><i class="bi bi-telephone"></i> NAMI Helpline</h5>
+                          <p><a href="tel:800-950-6264">800-950-NAMI (6264)</a> - Mon-Fri 10am-10pm ET</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-chat-dots"></i> Crisis Text Line</h5>
+                          <p>Text "NAMI" to 741741 - 24/7 support</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-shield-check"></i> SAMHSA Helpline</h5>
+                          <p><a href="tel:800-662-4357">800-662-HELP (4357)</a> - 24/7 treatment referral</p>
+                        </div>
+                        <div class="resource-card">
+                          <h5><i class="bi bi-people"></i> Support Groups</h5>
+                          <p>Find local peer support through NAMI and other organizations</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="conclusion-box">
+                      <div class="icon-wrapper"><i class="bi bi-heart"></i></div>
+                      <h4>Hope and Recovery</h4>
+                      <p>While schizophrenia is a serious condition, it is treatable. With consistent treatment, support, and self-care, many people with schizophrenia achieve recovery and lead fulfilling lives. Early intervention and ongoing care make a significant difference in outcomes.</p>
+                    </div>
+
+                    <div class="cta-section">
+                      <h3>Get Professional Support</h3>
+                      <p>Our specialized mental health team provides comprehensive care for schizophrenia and related conditions.</p>
+                      <a href="appointment.html" class="btn-cta" data-bs-dismiss="modal">
+                        <i class="bi bi-calendar-check"></i> Schedule Consultation
+                      </a>
+                    </div>
+
+                    <div class="related-articles">
+                      <h4>Related Resources</h4>
+                      <div class="row g-4">
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Depression Treatment</h5>
+                            <p>Understanding and treating depression effectively.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#depressionModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>Anxiety Disorders</h5>
+                            <p>Comprehensive guide to anxiety treatment options.</p>
+                            <a href="#" class="read-more" data-bs-toggle="modal" data-bs-target="#anxietyModal" data-bs-dismiss="modal">Learn More <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="related-card">
+                            <h5>All Services</h5>
+                            <p>View our complete range of mental health care.</p>
+                            <a href="services.html" class="read-more" data-bs-dismiss="modal">View <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
