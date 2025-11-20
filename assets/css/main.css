@@ -168,7 +168,7 @@ h6 {
 
 .header .logo img {
   max-height: 36px;
-  margin-right: 8px;
+  margin-right: -25px;
 }
 
 .header .logo svg {
@@ -1028,7 +1028,7 @@ margin-bottom: 2.2px;
 .hero .features-wrapper .feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 12rem;
   flex: 1;
 }
 
