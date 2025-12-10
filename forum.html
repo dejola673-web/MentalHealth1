@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Mental Health Support Forum - HorizonHelp</title>
+  
+  <meta name="description" content="Join our mental health support forum to connect with others, share experiences, and find support on your mental health journey.">
+  <meta name="keywords" content="mental health forum, support community, anxiety support, depression help, mental health discussion">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* Forum-specific styles */
+    .forum-section {
+      padding: 100px 0 60px 0;
+      min-height: 100vh;
+    }
+
+    .forum-header-box {
+      background: var(--surface-color);
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .forum-header-box h1 {
+      font-family: var(--heading-font);
+      color: var(--heading-color);
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .forum-header-box p {
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    .forum-post {
+      background: var(--surface-color);
+      padding: 35px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .forum-post:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-left-color: var(--accent-color);
+    }
+    .forum-post{
+          border-left-color: var(--accent-color);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .post-avatar {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #e0a800));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.6rem;
+      color: var(--contrast-color);
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-title-section {
+      flex: 1;
+    }
+
+    .post-title {
+      font-family: var(--heading-font);
+      color: var(--heading-color);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .post-title a {
+      color: var(--heading-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .post-title a:hover {
+      color: var(--accent-color);
+    }
+
+    .post-excerpt {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+    }
+
+    .post-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .post-meta-item i {
+      color: var(--accent-color);
+      font-size: 1rem;
+    }
+
+    .post-author {
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    .post-role {
+      display: inline-block;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .post-category {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .post-category:hover {
+      color: color-mix(in srgb, var(--accent-color), #000 20%);
+    }
+
+    .post-replies {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .replies-badge {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .unread-badge {
+      background: linear-gradient(135deg, #ff6b6b, #ff8787);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+    }
+
+    .forum-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+      padding: 40px;
+      background: var(--surface-color);
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 25px;
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--accent-color), transparent 95%);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--heading-font);
+    }
+
+    .stat-label {
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 992px) {
+      .forum-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .forum-section {
+        padding: 80px 0 40px 0;
+      }
+
+      .forum-header-box h1 {
+        font-size: 2rem;
+      }
+
+      .post-header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .post-avatar {
+        margin: 0 auto;
+      }
+
+      .post-title-section {
+        text-align: center;
+      }
+
+      .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .post-replies {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .forum-stats {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+      }
+
+      .forum-post {
+        padding: 25px 20px;
+      }
+    }
+
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000000;
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 10000;
+      font-weight: bold;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+
+    *:focus-visible {
+      outline: 3px solid #4A90E2;
+      outline-offset: 2px;
+    }
+  </style>
+
+
+
+       <style>
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #fff;
+      transition: opacity 0.3s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: Add a spinner if you don't have one */
+#preloader::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8ac06b; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+    @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+    }
+
+/* Performance optimization: Use will-change for smoother animations */
+    #preloader {
+      will-change: opacity;
+    }
+
+  </style>
+
+
+</head>
+
+<body class="index-page">
+
+  <!-- Skip Navigation Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="HorizonHelp Home" >
+        <div class="logo1">
+        <img src="assets/img/logo/Logo.png" style="max-height: 40px;">
+        </div>
+        <h1 class="sitename">HorizonHelp</h1>
+      </a>
+      
+      <nav id="navmenu" class="navmenu" aria-label="Main navigation">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="doctors.html">Doctors</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="gallery.html">Blog</a></li>
+          <li><a href="forum.html" class="active" aria-current="page">Forum</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navmenu">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <a class="btn-getstarted" href="appointment.html">Book Appointment</a>
+
+    </div>
+  </header>
+
+  <main class="main" id="main-content" role="main">
+
+    <!-- Forum Section -->
+    <section class="forum-section section light-background">
+      <div class="container">
+        
+        <!-- Forum Header -->
+        <div class="forum-header-box" data-aos="fade-up">
+          <h1><i class="bi bi-chat-square-text"></i> Mental Health Support Forum</h1>
+          <p>A safe space to share experiences, ask questions, and support each other on our mental health journeys</p>
+        </div>
+
+        <!-- Forum Posts -->
+        <div class="forum-posts">
+
+          <!-- Post 1 -->
+          <article class="forum-post" data-aos="fade-up" data-aos-delay="100">
+            <div class="post-header">
+              <div class="post-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="post-title-section">
+                <h2 class="post-title">
+                  <a href="forum1.html">Need advice on supporting a loved one with anxiety? Professional guidance welcome</a>
+                </h2>
+                <div class="post-excerpt">
+                  Hi everyone, I'm reaching out because my partner has been struggling with severe anxiety for the past few months. I want to be supportive but sometimes I'm not sure what the right thing to say or do is. Does anyone have experience with this? Any tips from those who have been through similar situations would be really appreciated...
+                </div>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="post-author">Sarah_M</span>
+                    <span class="post-role">Community Member</span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-folder"></i>
+                    <a href="#" class="post-category">Supporting Family & Friends</a>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-clock"></i>
+                    <time datetime="2025-11-18">18-11-2025 14:32</time>
+                  </div>
+                  <div class="post-replies">
+                    <i class="bi bi-chat-left-text"></i>
+                    <a href="forum1.html"><span class="replies-badge">73 replies</span></a>
+                    <span class="unread-badge">12 unread</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="forum-post" data-aos="fade-up" data-aos-delay="150">
+            <div class="post-header">
+              <div class="post-avatar" style="background: linear-gradient(135deg, #2196F3, #64B5F6);">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="post-title-section">
+                <h2 class="post-title">
+                  <a href="forum2.html">How to overcome depression and suicidal thoughts after experiencing loss?</a>
+                </h2>
+                <div class="post-excerpt">
+                  My life has been pretty turbulent the past couple of months. I don't want to get into too much detail but I have had some close losses recently. Ever since then I have been extremely . . .</div>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="post-author">Marcus_J</span>
+                    <span class="post-role">Moderator</span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-folder"></i>
+                    <a href="#" class="post-category">Stress & Anxiety Management</a>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-clock"></i>
+                    <time datetime="2025-11-17">17-11-2025 09:15</time>
+                  </div>
+                  <div class="post-replies">
+                    <i class="bi bi-chat-left-text"></i>
+                    <a href="forum2.html"><span class="replies-badge">156 replies</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="forum-post" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-header">
+              <div class="post-avatar" style="background: linear-gradient(135deg, #9c27b0, #ba68c8);">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="post-title-section">
+                <h2 class="post-title">
+                  <a href="forum3.html">Coping with Eating Disorders and Body Image Struggles.</a>
+                </h2>
+                <div class="post-excerpt">
+                  I’ve been struggling with disordered eating and negative body image for some time, and it’s really affecting my daily life. I often feel . . .
+                </div>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="post-author">John_f</span>
+                    <span class="post-role">Peer Support</span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-folder"></i>
+                    <a href="#" class="post-category">General Support</a>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-clock"></i>
+                    <time datetime="2025-11-16">16-11-2025 20:48</time>
+                  </div>
+                  <div class="post-replies">
+                    <i class="bi bi-chat-left-text"></i>
+                    <a href="forum3.html"><span class="replies-badge">289 replies</span></a>
+                    <span class="unread-badge">45 unread</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="forum-post" data-aos="fade-up" data-aos-delay="250">
+            <div class="post-header">
+              <div class="post-avatar" style="background: linear-gradient(135deg, #ff9800, #ffb74d);">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <div class="post-title-section">
+                <h2 class="post-title">
+                  <a href="forum4.html">Navigating Life with Schizophrenia: Looking for Support and Understanding</a>
+                </h2>
+                <div class="post-excerpt">
+                  I was diagnosed with schizophrenia about two years ago, and I'm still learning how to manage it day by day. Some days are better than others, but I often feel misunderstood and isolated . . .
+                </div>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="post-author">Marcus_T</span>
+                    <span class="post-role">Community Member</span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-folder"></i>
+                    <a href="#" class="post-category">Treatments & Therapy</a>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-clock"></i>
+                    <time datetime="2025-11-15">15-11-2025 16:22</time>
+                  </div>
+                  <div class="post-replies">
+                    <i class="bi bi-chat-left-text"></i>
+                    <a href="forum4.html"><span class="replies-badge">94 replies</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="forum-post" data-aos="fade-up" data-aos-delay="300">
+            <div class="post-header">
+              <div class="post-avatar" style="background: linear-gradient(135deg, #4caf50, #81c784);">
+                <i class="fas fa-sun"></i>
+              </div>
+              <div class="post-title-section">
+                <h2 class="post-title">
+                  <a href="forum5.html">How HorizonHelp helped me recovery from my depression and anxiety.</a>
+                </h2>
+                <div class="post-excerpt">
+                  I recently found HorizonHelp and I must say, you guys rock! The way everyone here is so understanding is so astounishing to me. The way you guys do things sho. . .
+                </div>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="bi bi-person-circle"></i>
+                    <span class="post-author">Jaxon_F</span>
+                    <span class="post-role">Community Member</span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-folder"></i>
+                    <a href="#" class="post-category">Self-Care & Wellness</a>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="bi bi-clock"></i>
+                    <time datetime="2025-11-14">14-11-2025 11:05</time>
+                  </div>
+                  <div class="post-replies">
+                    <i class="bi bi-chat-left-text"></i>
+                    <a href="forum5.html"><span class="replies-badge">201 replies</span></a>
+                    <span class="unread-badge">8 unread</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Forum Statistics -->
+        <div class="forum-stats" data-aos="fade-up" data-aos-delay="350">
+          <div class="stat-item">
+            <span class="stat-number">12,847</span>
+            <span class="stat-label">Total Threads</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">89,352</span>
+            <span class="stat-label">Total Posts</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5,432</span>
+            <span class="stat-label">Active Members</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">248</span>
+            <span class="stat-label">Online Now</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container copyright text-center mt-4">
+      <p><strong>HorizonHelp BPA 2025</strong></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Ali Ali, Muhammed Iyanda, Brian Padilla
+       
+       
+       <p>DACC 4565 Columbus Pike, Delaware, OH 43015</p>
+       <br>
+       <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Chatbot -->
+  <div class="chat-button" id="chatBtn" title="Chat with mental health assistant">
+    <img src="assets/img/health/staff-7.webp" alt="assistant">
+  </div>
+
+  <div class="chatbot" id="chatBot">
+    <div class="chatbot-header">
+      <img class="avatar-small" src="assets/img/health/staff-7.webp" alt="avatar">
+      <div>
+        <div style="font-weight:700">Wellness Assistant</div>
+        <div style="font-size:12px; opacity:0.95">I'm here to listen.</div>
+      </div>
+      <button class="chatbot-close" id="chatCloseBtn" aria-label="Close chat">×</button>
+    </div>
+
+    <div class="chatbot-body" id="chatBody">
+      <div class="msg ai">
+        Hi! – I'm your personal wellness assistant. If you're suffering from anything, let me know and I can provide ways to help.
+      </div>
+      <div class="crisis-banner" id="crisisBanner">
+        If you are thinking about harming yourself, please call <strong>988</strong> (U.S.) or your local crisis hotline.
+      </div>
+    </div>
+
+    <div class="chatbot-input">
+      <input id="userInput" placeholder="Type how you're feeling..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="assets/js/Chatbot.js"></script>
+
+
+  <script>
+
+(function() {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    // Set maximum loading time (3-5 seconds)
+    const MAX_LOAD_TIME = 3000; // 3 seconds
+    const startTime = Date.now();
+    
+    // Function to hide preloader
+    function hidePreloader() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 300);
+    }
+    
+    // Hide preloader after max time OR when page loads (whichever comes first)
+    const timeoutId = setTimeout(() => {
+      hidePreloader();
+    }, MAX_LOAD_TIME);
+    
+    // If page loads before timeout, hide immediately
+    if (document.readyState === 'complete') {
+      clearTimeout(timeoutId);
+      hidePreloader();
+    } else {
+      window.addEventListener('load', () => {
+        const elapsedTime = Date.now() - startTime;
+        
+        // If less than 1 second has passed, wait a bit for smooth UX
+        if (elapsedTime < 1000) {
+          setTimeout(() => {
+            clearTimeout(timeoutId);
+            hidePreloader();
+          }, 1000 - elapsedTime);
+        } else {
+          clearTimeout(timeoutId);
+          hidePreloader();
+        }
+      });
+    }
+  }
+})();
+
+</script>
+
+</body>
+</html>

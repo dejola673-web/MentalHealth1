@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Supporting a Loved One with Anxiety - HorizonHelp Forum</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --heading-font: "Raleway", sans-serif;
+      --background-color: #ffffff;
+      --default-color: #2c3031;
+      --heading-color: #18444c;
+      --accent-color: #8ac06b;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+    }
+
+    body {
+      font-family: var(--default-font);
+      color: var(--default-color);
+      background-color: #f2f8f9;
+      padding-top: 80px;
+    }
+
+    .post-detail-section {
+      padding: 40px 0 80px;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      gap: 12px;
+      color: #7ab05d;
+    }
+
+    .post-container {
+      background: var(--surface-color);
+      border-radius: 15px;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .post-header {
+      padding: 40px;
+      border-bottom: 2px solid #f2f8f9;
+    }
+
+    .post-author-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .author-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), #7ab05d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .author-details h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--heading-color);
+      font-weight: 700;
+    }
+
+    .author-role {
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .post-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+    }
+
+    .post-meta-bar i {
+      color: var(--accent-color);
+      margin-right: 5px;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 25px 0 20px;
+      line-height: 1.3;
+    }
+
+    .post-body {
+      padding: 40px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .post-body p {
+      margin-bottom: 20px;
+    }
+
+    .post-body ul {
+      margin: 20px 0;
+      padding-left: 25px;
+    }
+
+    .post-body ul li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .comments-section {
+      padding: 40px;
+      background: #f8fafb;
+    }
+
+    .comments-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e9ecef;
+    }
+
+    .comments-header h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin: 0;
+    }
+
+    .comment-form {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .comment-form h4 {
+      font-size: 1.2rem;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .comment-form textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 15px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-family: var(--default-font);
+      font-size: 1rem;
+      resize: vertical;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .comment-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 90%);
+    }
+
+    .comment-form button {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .comment-form button:hover {
+      background: #7ab05d;
+      transform: translateY(-2px);
+    }
+
+    .comment {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 4px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+      transition: all 0.3s ease;
+    }
+
+    .comment:hover {
+      border-left-color: var(--accent-color);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .comment-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), #7ab05d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .comment-author-info {
+      flex: 1;
+    }
+
+    .comment-author {
+      font-weight: 600;
+      color: var(--heading-color);
+      font-size: 1.05rem;
+    }
+
+    .comment-date {
+      font-size: 0.85rem;
+      color: color-mix(in srgb, var(--default-color), transparent 40%);
+      margin-top: 3px;
+    }
+
+    .comment-body {
+      color: var(--default-color);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .comment-body p {
+      margin-bottom: 12px;
+    }
+
+    .comment-body ul {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+
+    .comment-body ul li {
+      margin-bottom: 8px;
+    }
+
+    .helpful-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 15px;
+    }
+
+    .helpful-btn {
+      background: transparent;
+      border: 1px solid #e9ecef;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--default-color);
+    }
+
+    .helpful-btn:hover {
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .helpful-btn i {
+      margin-right: 5px;
+    }
+
+    .professional-badge {
+      background: linear-gradient(135deg, #4CAF50, #66BB6A);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+
+      .post-header, .post-body, .comments-section {
+        padding: 25px 20px;
+      }
+
+      .post-title {
+        font-size: 1.6rem;
+      }
+
+      .comments-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .comment-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header style="position: fixed; top: 0; width: 100%; background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; color: var(--heading-color); font-family: var(--heading-font);">HorizonHelp</h2>
+        <nav style="display: flex; gap: 30px;">
+          <a href="index.html" style="text-decoration: none; color: var(--default-color); font-weight: 500;">Home</a>
+          <a href="forum.html" style="text-decoration: none; color: var(--accent-color); font-weight: 600;">Forum</a>
+          <a href="contact.html" style="text-decoration: none; color: var(--default-color); font-weight: 500;">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-detail-section">
+      <div class="container">
+        
+        <a href="forum.html" class="back-button">
+          <i class="bi bi-arrow-left"></i>
+          Back to Forum
+        </a>
+
+        <div class="post-container">
+          
+          <!-- Post Header -->
+          <div class="post-header">
+            <div class="post-author-info">
+              <div class="author-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="author-details">
+                <h3>John_F<span class="author-role">Community Member</span></h3>
+                <div class="post-meta-bar">
+                  <span><i class="bi bi-folder"></i> Supporting Family & Friends</span>
+                  <span><i class="bi bi-clock"></i> 13-04-2023 11:22</span>
+                  <span><i class="bi bi-eye"></i> 3,567 views</span>
+                </div>
+              </div>
+            </div>
+            
+            <h1 class="post-title">How to overcome depression and suicidal thoughts after experiencing loss?</h1>
+          </div>
+
+          <!-- Post Body -->
+          <div class="post-body">
+            <p>Hey guys,</p>
+            
+            <p>My life has been pretty turbulent the past couple of months. I don't want to get into too much detail but I have had some close losses recently. Ever since then I have been extremely depressed and have had self-harming thoughts. What should I do?</p>
+            
+            <p>Some specific things I'm struggling with:</p>
+            <ul>
+              <li>Lack of appetite, I really just don't like eating anymore.</li>
+              <li>Not enjoying activities I would have previously loved.</li>
+              <li>Frequent out-bursts of anger towards loved ones.</li>
+              <li>Thoughts of self-harm and suicide.</li>
+            </ul>
+            
+            <p>I'm in a really dark place right now. Any and all advice would be useful.</p>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="comments-section">
+            <div class="comments-header">
+              <h3><i class="bi bi-chat-left-text"></i> 3 Comments</h3>
+            </div>
+
+            <!-- Comment Form -->
+            <div class="comment-form">
+              <h4>Share Your Thoughts</h4>
+              <textarea placeholder="Write your comment here... Share your experiences and support."></textarea>
+              <button><i class="bi bi-send"></i> Post Comment</button>
+            </div>
+
+            <!-- Comments -->
+            <div class="comment" id="comment-1">
+              <div class="comment-header">
+                <div class="comment-avatar" style="background: linear-gradient(135deg, #2196F3, #64B5F6);">
+                  <i class="fas fa-user-md"></i>
+                </div>
+                <div class="comment-author-info">
+                  <div class="comment-author">
+                    Dr. Smith 
+                    <span class="professional-badge">Therapist</span>
+                  </div>
+                  <div class="comment-date">4 hours ago</div>
+                </div>
+              </div>
+              <div class="comment-body">
+                <p>First of all, I am very sorry for you loss. I also have had dark moments in my life due to losing someone I love. You are not alone.
+                
+                <p><strong>Therapy:</strong> When I was in dark places, therapy was a god send for me. Being able to have an actual person to talk to is extremely useful to people struggling with depression.</p>
+                
+                <p><strong>Know that you aren't alone:</strong> Even though It might seem like it, you are NOT alone. Their is several people in your lives who would give anything for you. Never feel like you are the only one who cares.</p>
+                
+                <p><strong>Call a helpline:</strong> If you are ever having thoughts about self-harm call a helpline immediately. Millions of people accredit helplines as the things that saved their lives.</p>
+              </div>
+              <div class="helpful-section">
+                <button class="helpful-btn" data-comment-id="1" data-likes="45"><i class="bi bi-hand-thumbs-up"></i> Helpful (<span class="like-count">45</span>)</button>
+                <button class="helpful-btn reply-btn" data-comment-id="1"><i class="bi bi-reply"></i> Reply</button>
+              </div>
+              <div class="reply-form-container" id="reply-form-1" style="display: none; margin-top: 20px;">
+                <div class="comment-form" style="margin: 0;">
+                  <h4 style="font-size: 1rem;">Reply to Dr. Smith</h4>
+                  <textarea placeholder="Write your reply..." style="min-height: 80px;"></textarea>
+                  <div style="display: flex; gap: 10px;">
+                    <button class="submit-reply-btn" data-comment-id="1">
+                      <i class="bi bi-send"></i> Post Reply
+                    </button>
+                    <button class="cancel-reply-btn" data-comment-id="1" style="background: #6c757d;">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment" id="comment-2">
+              <div class="comment-header">
+                <div class="comment-avatar" style="background: linear-gradient(135deg, #9c27b0, #ba68c8);">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="comment-author-info">
+                  <div class="comment-author">Liz_therapy <span class="author-role">Peer Support</span></div>
+                  <div class="comment-date">6 hours ago</div>
+                </div>
+              </div>
+              <div class="comment-body">
+                <p>As a person who has been in that spot before, heres what I recommend:</p>
+                <ul>
+                  <li>Talk to someone about what you are going through. You will immediately feel better after telling someone.</li>
+                  <li>Get a therapist, it'll help your mental health. Therapy should be your first choice in your journey.</li>
+                  <li>Do positive things opposed to negative things in your daily life.</li>
+                  <li>Know that you have people in your life that love you dearly.</li>
+                  <li>Call a crisis helpline if worst comes to worst.</li>
+                </ul>
+                <p>Loss is an extremely hard thing to recover with, but it is possible. Remember you are loved and cherised.</p>
+              </div>
+              <div class="helpful-section">
+                <button class="helpful-btn" data-comment-id="2" data-likes="38"><i class="bi bi-hand-thumbs-up"></i> Helpful (<span class="like-count">38</span>)</button>
+                <button class="helpful-btn reply-btn" data-comment-id="2"><i class="bi bi-reply"></i> Reply</button>
+              </div>
+              <div class="reply-form-container" id="reply-form-2" style="display: none; margin-top: 20px;">
+                <div class="comment-form" style="margin: 0;">
+                  <h4 style="font-size: 1rem;">Reply to Liz_therapy</h4>
+                  <textarea placeholder="Write your reply..." style="min-height: 80px;"></textarea>
+                  <div style="display: flex; gap: 10px;">
+                    <button class="submit-reply-btn" data-comment-id="2">
+                      <i class="bi bi-send"></i> Post Reply
+                    </button>
+                    <button class="cancel-reply-btn" data-comment-id="2" style="background: #6c757d;">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment" id="comment-3">
+              <div class="comment-header">
+                <div class="comment-avatar" style="background: linear-gradient(135deg, #4caf50, #81c784);">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="comment-author-info">
+                  <div class="comment-author">Damian_K</div>
+                  <div class="comment-date">6 hours ago</div>
+                </div>
+              </div>
+              <div class="comment-body">
+                <p>I lost my mother three years ago. I thought I never could mentally recover from it, I was in a similar situation to you.</p>
+                <p>Loss at first seems like an impossible thing to recover from, but it isn't. You will learn how to return to your normal life soon.</p>
+              </div>
+              <div class="helpful-section">
+                <button class="helpful-btn" data-comment-id="3" data-likes="29"><i class="bi bi-hand-thumbs-up"></i> Helpful (<span class="like-count">29</span>)</button>
+                <button class="helpful-btn reply-btn" data-comment-id="3"><i class="bi bi-reply"></i> Reply</button>
+              </div>
+              <div class="reply-form-container" id="reply-form-3" style="display: none; margin-top: 20px;">
+                <div class="comment-form" style="margin: 0;">
+                  <h4 style="font-size: 1rem;">Reply to Damian_K</h4>
+                  <textarea placeholder="Write your reply..." style="min-height: 80px;"></textarea>
+                  <div style="display: flex; gap: 10px;">
+                    <button class="submit-reply-btn" data-comment-id="3">
+                      <i class="bi bi-send"></i> Post Reply
+                    </button>
+                    <button class="cancel-reply-btn" data-comment-id="3" style="background: #6c757d;">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Comment System
+    let commentIdCounter = 4; // Starting after existing comments
+    
+    // Initialize helpful button listeners for existing comments
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeHelpfulButtons();
+      initializeReplyButtons();
+    });
+
+    // Main comment form submission
+    document.querySelector('.comment-form button').addEventListener('click', function() {
+      const textarea = document.querySelector('.comment-form textarea');
+      const commentText = textarea.value.trim();
+      
+      if (commentText === '') {
+        alert('Please write a comment before posting.');
+        return;
+      }
+      
+      addComment(commentText, null);
+      textarea.value = '';
+    });
+
+    // Add new comment
+    function addComment(text, parentId = null) {
+      const commentsContainer = document.querySelector('.comments-section');
+      const commentId = commentIdCounter++;
+      
+      const comment = document.createElement('div');
+      comment.className = 'comment';
+      comment.id = `comment-${commentId}`;
+      comment.style.animation = 'slideIn 0.3s ease';
+      
+      if (parentId) {
+        comment.style.marginLeft = '50px';
+        comment.style.borderLeftColor = '#2196F3';
+      }
+      
+      const now = new Date();
+      const timeString = 'Just now';
+      
+      comment.innerHTML = `
+        <div class="comment-header">
+          <div class="comment-avatar" style="background: linear-gradient(135deg, #ff9800, #ffb74d);">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="comment-author-info">
+            <div class="comment-author">You <span class="author-role">Community Member</span></div>
+            <div class="comment-date">${timeString}</div>
+          </div>
+        </div>
+        <div class="comment-body">
+          <p>${escapeHtml(text)}</p>
+        </div>
+        <div class="helpful-section">
+          <button class="helpful-btn" data-comment-id="${commentId}" data-likes="0">
+            <i class="bi bi-hand-thumbs-up"></i> Helpful (<span class="like-count">0</span>)
+          </button>
+          <button class="helpful-btn reply-btn" data-comment-id="${commentId}">
+            <i class="bi bi-reply"></i> Reply
+          </button>
+        </div>
+        <div class="reply-form-container" id="reply-form-${commentId}" style="display: none; margin-top: 20px;">
+          <div class="comment-form" style="margin: 0;">
+            <h4 style="font-size: 1rem;">Reply to this comment</h4>
+            <textarea placeholder="Write your reply..." style="min-height: 80px;"></textarea>
+            <div style="display: flex; gap: 10px;">
+              <button class="submit-reply-btn" data-comment-id="${commentId}">
+                <i class="bi bi-send"></i> Post Reply
+              </button>
+              <button class="cancel-reply-btn" data-comment-id="${commentId}" style="background: #6c757d;">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      if (parentId) {
+        const parentComment = document.getElementById(`comment-${parentId}`);
+        parentComment.after(comment);
+      } else {
+        commentsContainer.appendChild(comment);
+      }
+      
+      // Initialize buttons for new comment
+      initializeHelpfulButtons();
+      initializeReplyButtons();
+      
+      // Update comment count
+      updateCommentCount();
+      
+      // Scroll to new comment
+      comment.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Initialize helpful (like) buttons
+    function initializeHelpfulButtons() {
+      document.querySelectorAll('.helpful-btn[data-comment-id]').forEach(button => {
+        if (button.classList.contains('reply-btn')) return;
+        
+        // Remove old listener if exists
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function() {
+          const commentId = this.dataset.commentId;
+          let likes = parseInt(this.dataset.likes) || 0;
+          const isLiked = this.classList.contains('liked');
+          
+          if (isLiked) {
+            // Unlike
+            likes--;
+            this.classList.remove('liked');
+            this.style.background = 'transparent';
+            this.style.borderColor = '#e9ecef';
+            this.style.color = 'var(--default-color)';
+          } else {
+            // Like
+            likes++;
+            this.classList.add('liked');
+            this.style.background = 'color-mix(in srgb, var(--accent-color), transparent 90%)';
+            this.style.borderColor = 'var(--accent-color)';
+            this.style.color = 'var(--accent-color)';
+          }
+          
+          this.dataset.likes = likes;
+          this.querySelector('.like-count').textContent = likes;
+          
+          // Animation
+          this.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 200);
+        });
+      });
+    }
+
+    // Initialize reply buttons
+    function initializeReplyButtons() {
+      document.querySelectorAll('.reply-btn').forEach(button => {
+        // Remove old listener if exists
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function() {
+          const commentId = this.dataset.commentId;
+          const replyForm = document.getElementById(`reply-form-${commentId}`);
+          
+          // Close all other reply forms
+          document.querySelectorAll('.reply-form-container').forEach(form => {
+            if (form.id !== `reply-form-${commentId}`) {
+              form.style.display = 'none';
+            }
+          });
+          
+          // Toggle this reply form
+          if (replyForm.style.display === 'none') {
+            replyForm.style.display = 'block';
+            replyForm.querySelector('textarea').focus();
+          } else {
+            replyForm.style.display = 'none';
+          }
+        });
+      });
+      
+      // Submit reply buttons
+      document.querySelectorAll('.submit-reply-btn').forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function() {
+          const commentId = this.dataset.commentId;
+          const replyForm = document.getElementById(`reply-form-${commentId}`);
+          const textarea = replyForm.querySelector('textarea');
+          const replyText = textarea.value.trim();
+          
+          if (replyText === '') {
+            alert('Please write a reply before posting.');
+            return;
+          }
+          
+          addComment(replyText, commentId);
+          textarea.value = '';
+          replyForm.style.display = 'none';
+        });
+      });
+      
+      // Cancel reply buttons
+      document.querySelectorAll('.cancel-reply-btn').forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function() {
+          const commentId = this.dataset.commentId;
+          const replyForm = document.getElementById(`reply-form-${commentId}`);
+          replyForm.style.display = 'none';
+          replyForm.querySelector('textarea').value = '';
+        });
+      });
+    }
+
+    // Update comment count in header
+    function updateCommentCount() {
+      const totalComments = document.querySelectorAll('.comment').length;
+      const header = document.querySelector('.comments-header h3');
+      header.innerHTML = `<i class="bi bi-chat-left-text"></i> ${totalComments} Comments`;
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML.replace(/\n/g, '<br>');
+    }
+
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .helpful-btn {
+        transition: all 0.3s ease;
+      }
+      
+      .helpful-btn.liked {
+        background: color-mix(in srgb, var(--accent-color), transparent 90%) !important;
+        border-color: var(--accent-color) !important;
+        color: var(--accent-color) !important;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

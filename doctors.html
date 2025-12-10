@@ -42,10 +42,12 @@
  <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="HorizonHelp Home" >
+        <div class="logo1">
+        <img src="assets/img/logo/Logo.png" style="max-height: 40px;">
+        </div>
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <svg class="my-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="bgCarrier" stroke-width="0"></g>
           <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="iconCarrier">
@@ -76,7 +78,7 @@
           <li><a href="doctors.html" class="active">Doctors</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="gallery.html">Blog</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="forum.html">Forum</a></li>
           <li><a href="contact.html">Contact Us</a></li>
 
           
@@ -84,7 +86,48 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="appointment.html">Appointment</a>
+      <a class="btn-getstarted" href="appointment.html">Book Appointment</a>
+       <style>
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #fff;
+      transition: opacity 0.3s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: Add a spinner if you don't have one */
+#preloader::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8ac06b; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+    @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+    }
+
+/* Performance optimization: Use will-change for smoother animations */
+    #preloader {
+      will-change: opacity;
+    }
+
+  </style>
 
     </div>
   </header>
@@ -105,7 +148,7 @@
 
       <div class="title-wrapper">
         <h1>Doctors</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        <p>View and book HorizonHelps premier mental health medical specialists.</p>
       </div>
     </div><!-- End Page Title -->
 
@@ -120,14 +163,7 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="assets/img/Healthcare Tech/Kya/IMG_0001.JPG" alt="Dr. Jennifer Martinez" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
                 </div>
-              </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Alexis Thompson</h4>
                 <span class="doctor-specialty">Nurse</span>
@@ -143,14 +179,7 @@
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="assets/img/Healthcare Tech/Kya/IMG_0054.png" alt="Dr. Michael Chen" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
+                <img src="assets/img/Healthcare Tech/Kya/IMG_0054.jpg" alt="Dr. Michael Chen" class="img-fluid"> 
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Dr. Jessica Njoku</h4>
@@ -168,13 +197,6 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="assets/img/Healthcare Tech/Kya/IMG_0048.JPG" alt="Dr. Sarah Williams" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Dr. Hailey Smith</h4>
@@ -191,14 +213,7 @@
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="assets/img/Student Services/IMG_9891.JPG" alt="Dr. Robert Anderson" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
+                <img src="assets/img/Student Services/IMG_1204.jpg" alt="Dr. Robert Anderson" class="img-fluid">
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Dr. Johnathan Daniels</h4>
@@ -216,13 +231,6 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="assets/img/Healthcare Tech/Kya/IMG_9994.JPG" alt="Dr. Lisa Thompson" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Dr. Wanda James</h4>
@@ -238,15 +246,8 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/Healthcare Tech/Kya/IMG_0050 - Copy.JPG" alt="Dr. David Rodriguez" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
+              <div class="doctor-image"> 
+                <img src="assets/img/Healthcare Tech/Kya/IMG_0050 - Copy.JPG" alt="Dr. David Rodriguez" class="img-fluid"> 
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Amelia Edwards</h4>
@@ -254,7 +255,7 @@
                 <p class="doctor-bio">Nurse Amelia Edwards is a newer addition to HorizonHelps team. She is an expert at all things mental health.</p>
                 <div class="doctor-experience">
                   <span class="experience-badge">16+ Years Experience</span>
-                </div>
+                </div>`
                 <a href="appointment.html" class="btn-appointment">Book Appointment</a>
               </div>
             </div>
@@ -264,13 +265,6 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="assets/img/Healthcare Tech/BP/IMG_9837 copy.JPG" alt="Dr. Amanda Clark" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Ashley Wilburk</h4>
@@ -288,13 +282,6 @@
             <div class="doctor-card">
               <div class="doctor-image">
                 <img src="assets/img/Clinical Medical Assisting/BP/IMG_9928 copy.JPG" alt="Dr. James Wilson" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="doctor-social">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-envelope"></i></a>
-                  </div>
-                </div>
               </div>
               <div class="doctor-content">
                 <h4 class="doctor-name">Amy Anthony</h4>
@@ -318,81 +305,21 @@
 
   <footer id="footer" class="footer position-relative light-background">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">MediTrust</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
+    
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+      <p><strong>HorizonHelp BPA 2025</strong></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Ali Ali, Muhammed Iyanda, Brian Padilla
+       
+       
+       <p>DACC 4565 Columbus Pike, Delaware, OH 43015</p>
+       <br>
+       <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
       </div>
     </div>
 
@@ -423,32 +350,84 @@
     <img src="assets/img/health/staff-7.webp" alt="assistant">
   </div>
 
-<div class="chatbox" id="chatBox">
-  <div class="chatbox-header">
+<div class="chatbot" id="chatBot">
+  <div class="chatbot-header">
     <img class="avatar-small" src="assets/img/health/staff-7.webp" alt="avatar">
     <div>
       <div style="font-weight:700">Wellness Assistant</div>
-      <div style="font-size:12px; opacity:0.95">I’m here to listen.</div>
+      <div style="font-size:12px; opacity:0.95">I'm here to listen.</div>
     </div>
+    <button class="chatbot-close" id="chatCloseBtn" aria-label="Close chat">×</button>
   </div>
 
-  <div class="chatbox-body" id="chatBody">
+  <div class="chatbot-body" id="chatBody">
     <div class="msg ai">
-      Hi! — I’m your personal wellness assistant. If you’re suffering from anything, let me know and I can provide ways to help.
+      Hi! — I'm your personal wellness assistant. If you're suffering from anything, let me know and I can provide ways to help.
     </div>
     <div class="crisis-banner" id="crisisBanner">
       If you are thinking about harming yourself, please call <strong>988</strong> (U.S.) or your local crisis hotline.
     </div>
   </div>
 
-  <div class="chatbox-input">
-    <input id="userInput" placeholder="Type how you’re feeling..." />
+  <div class="chatbot-input">
+    <input id="userInput" placeholder="Type how you're feeling..." />
     <button id="sendBtn">Send</button>
-    <script src="assets/js/Chatbot.js"></script>
+  </div>
+</div>
+
+<script src="assets/js/Chatbot.js"></script>
+
   </div>
 
-
 </div>
+
+<script>
+
+(function() {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    // Set maximum loading time (3-5 seconds)
+    const MAX_LOAD_TIME = 3000; // 3 seconds
+    const startTime = Date.now();
+    
+    // Function to hide preloader
+    function hidePreloader() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 300);
+    }
+    
+    // Hide preloader after max time OR when page loads (whichever comes first)
+    const timeoutId = setTimeout(() => {
+      hidePreloader();
+    }, MAX_LOAD_TIME);
+    
+    // If page loads before timeout, hide immediately
+    if (document.readyState === 'complete') {
+      clearTimeout(timeoutId);
+      hidePreloader();
+    } else {
+      window.addEventListener('load', () => {
+        const elapsedTime = Date.now() - startTime;
+        
+        // If less than 1 second has passed, wait a bit for smooth UX
+        if (elapsedTime < 1000) {
+          setTimeout(() => {
+            clearTimeout(timeoutId);
+            hidePreloader();
+          }, 1000 - elapsedTime);
+        } else {
+          clearTimeout(timeoutId);
+          hidePreloader();
+        }
+      });
+    }
+  }
+})();
+
+</script>
 
 </body>
 
