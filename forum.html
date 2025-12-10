@@ -313,6 +313,52 @@
       outline-offset: 2px;
     }
   </style>
+
+
+
+       <style>
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #fff;
+      transition: opacity 0.3s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: Add a spinner if you don't have one */
+#preloader::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8ac06b; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+    @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+    }
+
+/* Performance optimization: Use will-change for smoother animations */
+    #preloader {
+      will-change: opacity;
+    }
+
+  </style>
+
+
 </head>
 
 <body class="index-page">
@@ -325,7 +371,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="HorizonHelp Home" >
         <div class="logo1">
-        <img src="/assets/img/logo/Logo.png" style="max-height: 40px;">
+        <img src="assets/img/logo/Logo.png" style="max-height: 40px;">
         </div>
         <h1 class="sitename">HorizonHelp</h1>
       </a>
@@ -393,7 +439,7 @@
                   </div>
                   <div class="post-replies">
                     <i class="bi bi-chat-left-text"></i>
-                    <span class="replies-badge">73 replies</span>
+                    <a href="forum1.html"><span class="replies-badge">73 replies</span></a>
                     <span class="unread-badge">12 unread</span>
                   </div>
                 </div>
@@ -429,7 +475,7 @@
                   </div>
                   <div class="post-replies">
                     <i class="bi bi-chat-left-text"></i>
-                    <span class="replies-badge">156 replies</span>
+                    <a href="forum2.html"><span class="replies-badge">156 replies</span></a>
                   </div>
                 </div>
               </div>
@@ -465,7 +511,7 @@
                   </div>
                   <div class="post-replies">
                     <i class="bi bi-chat-left-text"></i>
-                    <span class="replies-badge">289 replies</span>
+                    <a href="forum3.html"><span class="replies-badge">289 replies</span></a>
                     <span class="unread-badge">45 unread</span>
                   </div>
                 </div>
@@ -502,7 +548,7 @@
                   </div>
                   <div class="post-replies">
                     <i class="bi bi-chat-left-text"></i>
-                    <span class="replies-badge">94 replies</span>
+                    <a href="forum4.html"><span class="replies-badge">94 replies</span></a>
                   </div>
                 </div>
               </div>
@@ -538,7 +584,7 @@
                   </div>
                   <div class="post-replies">
                     <i class="bi bi-chat-left-text"></i>
-                    <span class="replies-badge">201 replies</span>
+                    <a href="forum5.html"><span class="replies-badge">201 replies</span></a>
                     <span class="unread-badge">8 unread</span>
                   </div>
                 </div>
@@ -575,9 +621,18 @@
 
   <footer id="footer" class="footer position-relative light-background">
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">HorizonHelp</strong> <span>All Rights Reserved</span></p>
+      <p><strong>HorizonHelp BPA 2025</strong></p>
       <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by Ali Ali, Muhammed Iyanda, Brian Padilla
+       
+       
+       <p>DACC 4565 Columbus Pike, Delaware, OH 43015</p>
+       <br>
+       <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
       </div>
     </div>
   </footer>
@@ -627,6 +682,55 @@
   </div>
 
   <script src="assets/js/Chatbot.js"></script>
+
+
+  <script>
+
+(function() {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    // Set maximum loading time (3-5 seconds)
+    const MAX_LOAD_TIME = 3000; // 3 seconds
+    const startTime = Date.now();
+    
+    // Function to hide preloader
+    function hidePreloader() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 300);
+    }
+    
+    // Hide preloader after max time OR when page loads (whichever comes first)
+    const timeoutId = setTimeout(() => {
+      hidePreloader();
+    }, MAX_LOAD_TIME);
+    
+    // If page loads before timeout, hide immediately
+    if (document.readyState === 'complete') {
+      clearTimeout(timeoutId);
+      hidePreloader();
+    } else {
+      window.addEventListener('load', () => {
+        const elapsedTime = Date.now() - startTime;
+        
+        // If less than 1 second has passed, wait a bit for smooth UX
+        if (elapsedTime < 1000) {
+          setTimeout(() => {
+            clearTimeout(timeoutId);
+            hidePreloader();
+          }, 1000 - elapsedTime);
+        } else {
+          clearTimeout(timeoutId);
+          hidePreloader();
+        }
+      });
+    }
+  }
+})();
+
+</script>
 
 </body>
 </html>

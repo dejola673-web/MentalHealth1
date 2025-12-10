@@ -48,7 +48,7 @@
 
     /* Enhanced Focus Indicators */
     *:focus {
-      outline: 3px solid #4A90E2;
+      outline: 3px solid #8ac06b;
       outline-offset: 2px;
     }
 
@@ -57,7 +57,7 @@
     }
 
     *:focus-visible {
-      outline: 3px solid #4A90E2;
+      outline: 3px solid #8ac06b;
       outline-offset: 2px;
     }
 
@@ -91,6 +91,48 @@
       white-space: normal;
     }
   </style>
+
+  <style>
+    #preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+  transition: opacity 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: Add a spinner if you don't have one */
+#preloader::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #8ac06b; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Performance optimization: Use will-change for smoother animations */
+#preloader {
+  will-change: opacity;
+}
+
+  </style>
 </head>
 
 <body class="index-page">
@@ -103,7 +145,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0" aria-label="HorizonHelp Home" >
         <div class="logo1">
-        <img src="/assets/img/logo/Logo.png" style="max-height: 40px;">
+        <img src="assets/img/logo/Logo.png" style="max-height: 40px;">
         </div>
         <g id="bgCarrier" stroke-width="0"></g>
           <g id="tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -186,7 +228,7 @@
                     
                     <div class="cta-group" data-aos="fade-up" data-aos-delay="300">
                       <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
-                      <a href="services.html" class="btn btn-outline">Contact Us</a>
+                      <a href="contact.html" class="btn btn-outline">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -275,7 +317,7 @@
               </div>
 
               <div class="cta-wrapper mt-4">
-                <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+                <a href="appointment.html" class="btn btn-primary">Book an Appointment</a>
                 <a href="doctors.html" class="btn btn-outline">Meet Our Team</a>
               </div>
             </div>
@@ -329,9 +371,6 @@
                 <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0121.JPG" alt="Depression treatment consultation room" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-brain"></i>
-                </div>
                 <h3>Depression</h3>
                 <p>Depression treatment often includes a combination of therapy, medication, and lifestyle changes. Psychotherapy, such as cognitive-behavioral therapy (CBT) or interpersonal therapy (IPT), helps individuals understand and manage their thoughts and feelings.</p>
                 <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#depressionModal" aria-label="Learn more about depression treatment">
@@ -348,9 +387,6 @@
                 <img src="assets/img/Clinical Medical Assisting/BP/IMG_9919.JPG" alt="Anxiety therapy session environment" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-heartbeat"></i>
-                </div>
                 <h3>Anxiety</h3>
                 <p>Anxiety treatment often includes a combination of therapy, such as cognitive behavioral therapy (CBT), and medication like SSRIs to manage symptoms. Lifestyle changes like regular exercise, mindfulness, and sleep improvement can also support recovery.</p>
                 <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#anxietyModal" aria-label="Learn more about anxiety treatment">
@@ -367,9 +403,6 @@
                 <img src="assets/img/Healthcare Tech/Kya/IMG_9974.JPG" alt="PTSD trauma therapy space" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-bone"></i>
-                </div>
                 <h3>PTSD</h3>
                 <p>PTSD treatment typically involves trauma-focused therapies such as cognitive processing therapy (CPT) or eye movement desensitization and reprocessing (EMDR). Medications like SSRIs may also be prescribed to help manage symptoms such as anxiety, depression, or insomnia.</p>
                 <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#ptsdModal" aria-label="Learn more about PTSD treatment">
@@ -386,9 +419,6 @@
                 <img src="assets/img/Clinical Medical Assisting/Kya/IMG_0061.JPG" alt="Eating disorder recovery program" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-baby"></i>
-                </div>
                 <h3>Eating Disorders</h3>
                 <p>Eating disorder treatment often includes a combination of medical care, nutritional counseling, and psychotherapy, such as cognitive behavioral therapy (CBT). Treatment focuses on normalizing eating patterns, addressing underlying emotional issues, and building a healthy relationship with food and body image.</p>
                 <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#eatingModal" aria-label="Learn more about eating disorder treatment">
@@ -405,9 +435,6 @@
                 <img src="assets/img/Student Services/IMG_9892.JPG" alt="Schizophrenia treatment facility" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
                 <h3>Schizophrenia</h3>
                 <p>Schizophrenia treatment typically involves antipsychotic medications to help manage symptoms like hallucinations, delusions, and disorganized thinking. Psychosocial therapies, such as cognitive behavioral therapy (CBT) and supported employment or social skills training, are also important for long-term recovery.</p>
                 <button type="button" class="btn-learn-more" data-bs-toggle="modal" data-bs-target="#schizophreniaModal" aria-label="Learn more about schizophrenia treatment">
@@ -424,12 +451,9 @@
                 <img src="assets/img/health/emergency-2.webp" alt="Emergency mental health care center" class="img-fluid">
               </div>
               <div class="department-content">
-                <div class="department-icon" aria-hidden="true">
-                  <i class="fas fa-ambulance"></i>
-                </div>
                 <h3>Emergency Care</h3>
                 <p>Round-the-clock emergency medical services with rapid response capabilities, state-of-the-art equipment, and experienced emergency physicians for critical care.</p>
-                <a href="services.html" class="btn-learn-more">
+                <a href="https://988lifeline.org/" class="btn-learn-more">
                   <button type="button" class = "btn-learn-more">
                   <span>Learn More</span>
                   <i class="fas fa-arrow-right" aria-hidden="true"></i>
@@ -445,7 +469,7 @@
 
     </section>
 
-     <!-- Featured Services Section -->
+      <!-- Featured Services Section -->
     <section id="featured-services" class="featured-services section light-background">
 
       <!-- Section Title -->
@@ -461,15 +485,15 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-heartbeat"></i>
+                <i class="bi-heart-pulse"></i>
               </div>
               <div class="service-content">
                 <h3>Concord Counseling Services (Crisis Assistance)</h3>
                 <p>Around-The-Clock Mental Health Services. Talk To a Licensed Professional Today.</p>
                 <ul class="service-features">
-                  <li><i class="fas fa-check-circle"></i>Private and Confidental Conversations with Professionals</li>
-                  <li><i class="fas fa-check-circle"></i>Deaf & Blind Accessibility</li>
-                  <li><i class="fas fa-check-circle"></i>24-7, 365 days a year</li>
+                  <li><i class="bi-check-circle"></i>Private and Confidental Conversations with Professionals</li>
+                  <li><i class="bi-check-circle"></i>Deaf & Blind Accessibility</li>
+                  <li><i class="bi-check-circle"></i>24-7, 365 days a year</li>
                 </ul>
                 <a href="https://concordcounseling.org/" class="service-btn">
                   Learn More
@@ -482,15 +506,15 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-brain"></i>
+                <i class="bi-cup-hot"></i>
               </div>
               <div class="service-content">
                 <h3>Westerville Area Resource Ministry (WARM)</h3>
                 <p>Resource and Help Center For The Westerville, Ohio Area.</p>
                 <ul class="service-features">
-                  <li><i class="fas fa-check-circle"></i>Food and Clothing Services</li>
-                  <li><i class="fas fa-check-circle"></i>Employment Assistance</li>
-                  <li><i class="fas fa-check-circle"></i>Homeless Shelter</li>
+                  <li><i class="bi-check-circle"></i>Food and Clothing Services</li>
+                  <li><i class="bi-check-circle"></i>Employment Assistance</li>
+                  <li><i class="bi-check-circle"></i>Homeless Shelter</li>
                 </ul>
                 <a href="https://warmwesterville.org/" class="service-btn">
                   Learn More
@@ -503,15 +527,15 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-bone"></i>
+                <i class="bi-sunrise"></i>
               </div>
               <div class="service-content">
                 <h3>Substance Abuse and Mental Health Services Administration (SAMHSA) </h3>
                 <p>National Healthline For Both Mental Health and Substance Abuse.</p>
                 <ul class="service-features">
-                  <li><i class="fas fa-check-circle"></i>Licensed Medical and Mental Counseling</li>
-                  <li><i class="fas fa-check-circle"></i>Language Accessibility</li>
-                  <li><i class="fas fa-check-circle"></i>24/7 Care</li>
+                  <li><i class="bi-check-circle"></i>Licensed Medical and Mental Counseling</li>
+                  <li><i class="bi-check-circle"></i>Language Accessibility</li>
+                  <li><i class="bi-check-circle"></i>24/7 Care</li>
                 </ul>
                 <a href="https://www.samhsa.gov/" class="service-btn">
                   Learn More
@@ -524,17 +548,17 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-ambulance"></i>
+                <i class="bi-shield-check"></i>
               </div>
               <div class="service-content">
                 <h3>988 Suicide & Mental Crisis Lifeline</h3>
                 <p>24/7 Suicide and Crisis Helpline. Trained professionals and counseling.</p>
                 <ul class="service-features">
-                  <li><i class="fas fa-check-circle"></i>24/7 Emergency Department</li>
-                  <li><i class="fas fa-check-circle"></i>Level 1 Trauma Center</li>
-                  <li><i class="fas fa-check-circle"></i>Critical Care Units</li>
+                  <li><i class="bi-check-circle"></i>24/7 Emergency Department</li>
+                  <li><i class="bi-check-circle"></i>Level 1 Trauma Center</li>
+                  <li><i class="bi-check-circle"></i>Critical Care Units</li>
                 </ul>
-                <a href="services.html" class="service-btn">
+                <a href="https://mentalhealthhotline.org/" class="service-btn">
                   Learn More
                   <i class="fas fa-arrow-right"></i>
                 </a>
@@ -590,7 +614,7 @@
               </div>
               <h5>Easy Online Booking</h5>
               <p>We have an easy booking system for you to book doctors in times of need. We will reach out to you within hours of your booking.</p>
-              <a href="#" class="feature-link">
+              <a href="appointment.html" class="feature-link">
                 <span>Book Now</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -604,7 +628,7 @@
               </div>
               <h5>Expert Medical Team</h5>
               <p>Our medical team is composed of America's premier medical staff. For over 20 years, our team has helped thousands who were in the midst of crisis.</p>
-              <a href="#" class="feature-link">
+              <a href="doctors.html" class="feature-link">
                 <span>Meet Our Doctors</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
@@ -783,13 +807,18 @@
 
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+      <p><strong>HorizonHelp BPA 2025</strong></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by Ali Ali, Muhammed Iyanda, Brian Padilla
+       
+       
+       <p>DACC 4565 Columbus Pike, Delaware, OH 43015</p>
+       <br>
+       <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
       </div>
     </div>
 
@@ -1157,7 +1186,7 @@
 
                   <!-- Hero Image with Overlay -->
                   <div class="blog-hero">
-                    <img src="assets/img/Clinical Medical Assisting/BP/IMG_9919.JPG" alt="Understanding anxiety and treatment">
+                    <img src="assets/img/Clinical Medical Assisting/BP/IMG_9919 mod.JPG" alt="Understanding anxiety and treatment">
                     <div class="blog-hero-overlay">
                       <h1>Understanding Anxiety Disorders</h1>
                       <div class="meta">
@@ -2130,7 +2159,53 @@
   </div>
 </div>
 
+<script>
 
+(function() {
+  const preloader = document.getElementById('preloader');
+  
+  if (preloader) {
+    // Set maximum loading time (3-5 seconds)
+    const MAX_LOAD_TIME = 3000; // 3 seconds
+    const startTime = Date.now();
+    
+    // Function to hide preloader
+    function hidePreloader() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 300);
+    }
+    
+    // Hide preloader after max time OR when page loads (whichever comes first)
+    const timeoutId = setTimeout(() => {
+      hidePreloader();
+    }, MAX_LOAD_TIME);
+    
+    // If page loads before timeout, hide immediately
+    if (document.readyState === 'complete') {
+      clearTimeout(timeoutId);
+      hidePreloader();
+    } else {
+      window.addEventListener('load', () => {
+        const elapsedTime = Date.now() - startTime;
+        
+        // If less than 1 second has passed, wait a bit for smooth UX
+        if (elapsedTime < 1000) {
+          setTimeout(() => {
+            clearTimeout(timeoutId);
+            hidePreloader();
+          }, 1000 - elapsedTime);
+        } else {
+          clearTimeout(timeoutId);
+          hidePreloader();
+        }
+      });
+    }
+  }
+})();
+
+</script>
 
 </body>
 
