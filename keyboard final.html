@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Screen Keyboard & AssistiveTouch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .text-input-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            resize: none;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        /* AssistiveTouch Button */
+        .assistive-touch {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 1000;
+        }
+
+        .assistive-btn {
+            width: 64px;
+            height: 64px;
+            background-color: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(8px);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .assistive-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .assistive-btn:active {
+            transform: scale(0.95);
+        }
+
+        .assistive-icon {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Radial Menu Items */
+        .menu-items {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            pointer-events: none;
+        }
+
+        .menu-item {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .menu-item.show {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: all;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.15);
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Keyboard Container */
+        .keyboard {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #e5e7eb;
+            border-top: 4px solid #9ca3af;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .keyboard.visible {
+            transform: translateY(0);
+        }
+
+        .keyboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .keyboard-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .keyboard-close {
+            padding: 8px 20px;
+            background-color: #4b5563;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .keyboard-close:hover {
+            background-color: #374151;
+        }
+
+        .keyboard-keys {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .key {
+            min-width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            transition: all 0.1s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .key:hover {
+            background-color: #f9fafb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .key:active {
+            background-color: #e5e7eb;
+            transform: translateY(2px);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .key.special {
+            min-width: 80px;
+            background-color: #f3f4f6;
+            font-size: 0.875rem;
+        }
+
+        .key.caps {
+            background-color: #e5e7eb;
+        }
+
+        .key.caps.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .key.backspace {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .key.backspace:hover {
+            background-color: #dc2626;
+        }
+
+        .key.space {
+            flex: 1;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>AssistiveTouch Demo</h1>
+    <p>Click the floating button in the bottom-right to access the AssistiveTouch menu</p>
+
+    <div class="text-input-section">
+        <label for="textInput">Text Input</label>
+        <textarea 
+            id="textInput" 
+            placeholder="Type here or use the on-screen keyboard..."
+        ></textarea>
+    </div>
+</div>
+
+<!-- AssistiveTouch Button & Menu -->
+<div class="assistive-touch">
+    <button class="assistive-btn" id="assistiveBtn">
+        <svg class="assistive-icon" id="assistiveIcon" viewBox="0 0 24 24">
+            <!-- Hand icon (default) -->
+            <path d="M9 11V6a1 1 0 0 1 2 0v5M9 11a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-5a1 1 0 0 0-2 0M9 11a1 1 0 0 1 2 0m0 0V9a1 1 0 0 1 2 0v2m0 0V6a1 1 0 0 1 2 0v5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div class="menu-items" id="menuItems">
+        <button class="menu-item" id="menuKeyboard" style="background-color: #3b82f6;">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="menu-item" id="menuVolume" style="background-color: #10b981;">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="menu-item" id="menuSettings" style="background-color: #8b5cf6;">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="menu-item" id="menuHome" style="background-color: #f59e0b;">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="9 22 9 12 15 12 15 22" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- On-Screen Keyboard -->
+<div class="keyboard" id="keyboard">
+    <div class="keyboard-header">
+        <div class="keyboard-title">On-Screen Keyboard</div>
+        <button class="keyboard-close" id="keyboardClose">Close</button>
+    </div>
+    <div class="keyboard-keys" id="keyboardKeys">
+        <!-- Keyboard will be generated by JavaScript -->
+    </div>
+</div>
+
+<script>
+    // State
+    let menuOpen = false;
+    let keyboardVisible = false;
+    let capsLock = false;
+
+    // Elements
+    const assistiveBtn = document.getElementById('assistiveBtn');
+    const assistiveIcon = document.getElementById('assistiveIcon');
+    const menuItems = document.getElementById('menuItems');
+    const menuKeyboard = document.getElementById('menuKeyboard');
+    const menuVolume = document.getElementById('menuVolume');
+    const menuSettings = document.getElementById('menuSettings');
+    const menuHome = document.getElementById('menuHome');
+    const keyboard = document.getElementById('keyboard');
+    const keyboardClose = document.getElementById('keyboardClose');
+    const keyboardKeys = document.getElementById('keyboardKeys');
+    const textInput = document.getElementById('textInput');
+
+    // Keyboard layout
+    const keyboardLayout = [
+        ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+    ];
+
+    // Calculate menu item positions
+    function getMenuItemPosition(index, total) {
+        const angle = (index * (2 * Math.PI / total)) - (Math.PI / 2);
+        const radius = 80;
+        return {
+            x: Math.cos(angle) * radius,
+            y: Math.sin(angle) * radius
+        };
+    }
+
+    // Toggle menu
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        
+        if (menuOpen) {
+            // Change icon to X
+            assistiveIcon.innerHTML = '<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>';
+            
+            // Show menu items
+            const items = [menuKeyboard, menuVolume, menuSettings, menuHome];
+            items.forEach((item, index) => {
+                const pos = getMenuItemPosition(index, items.length);
+                item.style.bottom = (32 - pos.y) + 'px';
+                item.style.right = (32 - pos.x) + 'px';
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 50);
+            });
+        } else {
+            // Change icon back to hand
+            assistiveIcon.innerHTML = '<path d="M9 11V6a1 1 0 0 1 2 0v5M9 11a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-5a1 1 0 0 0-2 0M9 11a1 1 0 0 1 2 0m0 0V9a1 1 0 0 1 2 0v2m0 0V6a1 1 0 0 1 2 0v5" stroke-linecap="round" stroke-linejoin="round"/>';
+            
+            // Hide menu items
+            [menuKeyboard, menuVolume, menuSettings, menuHome].forEach(item => {
+                item.classList.remove('show');
+            });
+        }
+    }
+
+    // Toggle keyboard
+    function toggleKeyboard() {
+        keyboardVisible = !keyboardVisible;
+        
+        if (keyboardVisible) {
+            keyboard.classList.add('visible');
+        } else {
+            keyboard.classList.remove('visible');
+        }
+        
+        menuOpen = false;
+        assistiveIcon.innerHTML = '<path d="M9 11V6a1 1 0 0 1 2 0v5M9 11a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-5a1 1 0 0 0-2 0M9 11a1 1 0 0 1 2 0m0 0V9a1 1 0 0 1 2 0v2m0 0V6a1 1 0 0 1 2 0v5" stroke-linecap="round" stroke-linejoin="round"/>';
+        [menuKeyboard, menuVolume, menuSettings, menuHome].forEach(item => {
+            item.classList.remove('show');
+        });
+    }
+
+    // Type key
+    function typeKey(key) {
+        const char = capsLock ? key.toUpperCase() : key;
+        const cursorPos = textInput.selectionStart;
+        const textBefore = textInput.value.substring(0, cursorPos);
+        const textAfter = textInput.value.substring(textInput.selectionEnd);
+        
+        textInput.value = textBefore + char + textAfter;
+        textInput.selectionStart = textInput.selectionEnd = cursorPos + 1;
+        textInput.focus();
+    }
+
+    // Backspace
+    function handleBackspace() {
+        const cursorPos = textInput.selectionStart;
+        if (cursorPos > 0) {
+            const textBefore = textInput.value.substring(0, cursorPos - 1);
+            const textAfter = textInput.value.substring(textInput.selectionEnd);
+            
+            textInput.value = textBefore + textAfter;
+            textInput.selectionStart = textInput.selectionEnd = cursorPos - 1;
+        }
+        textInput.focus();
+    }
+
+    // Space
+    function handleSpace() {
+        typeKey(' ');
+    }
+
+    // Toggle caps lock
+    function toggleCaps() {
+        capsLock = !capsLock;
+        const capsBtn = document.getElementById('capsBtn');
+        
+        if (capsLock) {
+            capsBtn.classList.add('active');
+        } else {
+            capsBtn.classList.remove('active');
+        }
+        
+        // Update all letter keys
+        document.querySelectorAll('.key[data-letter]').forEach(key => {
+            const letter = key.getAttribute('data-letter');
+            key.textContent = capsLock ? letter.toUpperCase() : letter.toUpperCase();
+        });
+    }
+
+    // Build keyboard
+    function buildKeyboard() {
+        keyboardKeys.innerHTML = '';
+        
+        // Number row
+        const numberRow = document.createElement('div');
+        numberRow.className = 'keyboard-row';
+        keyboardLayout[0].forEach(key => {
+            const btn = document.createElement('button');
+            btn.className = 'key';
+            btn.textContent = key;
+            btn.onclick = () => typeKey(key);
+            numberRow.appendChild(btn);
+        });
+        keyboardKeys.appendChild(numberRow);
+        
+        // First letter row (QWERTY)
+        const row1 = document.createElement('div');
+        row1.className = 'keyboard-row';
+        keyboardLayout[1].forEach(key => {
+            const btn = document.createElement('button');
+            btn.className = 'key';
+            btn.setAttribute('data-letter', key);
+            btn.textContent = key.toUpperCase();
+            btn.onclick = () => typeKey(key);
+            row1.appendChild(btn);
+        });
+        keyboardKeys.appendChild(row1);
+        
+        // Second letter row (ASDF) with Caps
+        const row2 = document.createElement('div');
+        row2.className = 'keyboard-row';
+        
+        const capsBtn = document.createElement('button');
+        capsBtn.id = 'capsBtn';
+        capsBtn.className = 'key caps special';
+        capsBtn.textContent = 'Caps';
+        capsBtn.onclick = toggleCaps;
+        row2.appendChild(capsBtn);
+        
+        keyboardLayout[2].forEach(key => {
+            const btn = document.createElement('button');
+            btn.className = 'key';
+            btn.setAttribute('data-letter', key);
+            btn.textContent = key.toUpperCase();
+            btn.onclick = () => typeKey(key);
+            row2.appendChild(btn);
+        });
+        
+        const backspaceBtn = document.createElement('button');
+        backspaceBtn.className = 'key backspace special';
+        backspaceBtn.textContent = '⌫';
+        backspaceBtn.onclick = handleBackspace;
+        row2.appendChild(backspaceBtn);
+        
+        keyboardKeys.appendChild(row2);
+        
+        // Third letter row (ZXCV)
+        const row3 = document.createElement('div');
+        row3.className = 'keyboard-row';
+        
+        const spacer1 = document.createElement('div');
+        spacer1.style.width = '90px';
+        row3.appendChild(spacer1);
+        
+        keyboardLayout[3].forEach(key => {
+            const btn = document.createElement('button');
+            btn.className = 'key';
+            btn.setAttribute('data-letter', key);
+            btn.textContent = key.toUpperCase();
+            btn.onclick = () => typeKey(key);
+            row3.appendChild(btn);
+        });
+        
+        keyboardKeys.appendChild(row3);
+        
+        // Space bar row
+        const spaceRow = document.createElement('div');
+        spaceRow.className = 'keyboard-row';
+        
+        const spaceBtn = document.createElement('button');
+        spaceBtn.className = 'key space';
+        spaceBtn.textContent = 'Space';
+        spaceBtn.onclick = handleSpace;
+        spaceRow.appendChild(spaceBtn);
+        
+        keyboardKeys.appendChild(spaceRow);
+    }
+
+    // Event listeners
+    assistiveBtn.addEventListener('click', toggleMenu);
+    menuKeyboard.addEventListener('click', toggleKeyboard);
+    menuVolume.addEventListener('click', () => {
+        alert('Volume control');
+        toggleMenu();
+    });
+    menuSettings.addEventListener('click', () => {
+        alert('Settings');
+        toggleMenu();
+    });
+    menuHome.addEventListener('click', () => {
+        alert('Home');
+        toggleMenu();
+    });
+    keyboardClose.addEventListener('click', toggleKeyboard);
+
+    // Initialize
+    buildKeyboard();
+</script>
+
+</body>
+</html>
